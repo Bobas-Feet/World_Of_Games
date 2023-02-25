@@ -14,10 +14,10 @@ def get_guess_from_user(difficulty, secret_number):
     count = 0
     while difficulty != secret_number:
         count += 1
-        guess = int(input('Now, try and guess what number the computer is thinking about '))
+        guess = int(input('Now, try and guess the number that the computer is thinking about... '))
 
         if int(count) >= 3:
-            print('You lost')
+            print("Nope. You're out of attempts.")
             quit()
         else:
             pass
@@ -27,7 +27,7 @@ def get_guess_from_user(difficulty, secret_number):
         elif guess > secret_number:
             print('Nope. Maybe lower...?')
         else:
-            print(f'Congratulations, You got it right in {count} attempts.')
+            print(f'Congratulations, You got it right in attempt #{count}.')
             quit()
 
 
