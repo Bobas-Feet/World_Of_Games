@@ -15,7 +15,7 @@ def welcome():
             print("Error. Contains illegal characters")
             welcome()
         elif name == '' or name == ' ':
-            print('Error. No blanks')
+            print('Error. You cannot leave this field empty.')
             welcome()
         elif 3 >= len(name) >= 15:
             print('Error. Username either too long or too short')
