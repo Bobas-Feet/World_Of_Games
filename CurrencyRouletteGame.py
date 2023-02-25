@@ -9,7 +9,7 @@ from credentials import api_key
 
 def get_money_interval(difficulty):
 
-    url = f'https://v6.exchangerate-api.com/v6/{api_key}/pair/USD/ILS'
+    url = f'https://v6.exchangerate-api.com/v6/{api_key}/pair/USD/ILS/'
     response = r.urlopen(url)
     data = json.load(response)
 
