@@ -7,7 +7,7 @@ import CurrencyRouletteGame
 
 def welcome():
     name = input('What is your name? [You may use only letters,'
-                 '\n no numbers or special symbols (!@#$%^) and no spaces] ')
+                 '\nno numbers or special symbols (!@#$%^) and no spaces] ')
 
     try:
         if any([i > 'z' or i < 'a' for i in name]):
@@ -35,7 +35,8 @@ def load_game():
 
     while True:
         try:
-            g = int(input('What game would you like to play? [1/2/3] '))
+            g = int(input('What game would you like to play?'
+                          '\n1: The Memory Game\n2: The Guessing Game\n3: The Currency Roulette Game \n'))
 
             if int(g) == 1:
                 print(f'{game1}: A sequence of numbers will appear for 1 second, and you have'

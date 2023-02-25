@@ -4,7 +4,7 @@ import random
 
 
 def generate_number(difficulty):
-    secret_number = random.randint(1, int(difficulty))
+    secret_number = random.randint(1, int(difficulty) + 5)
     # print(secret_number)
     return secret_number
 
