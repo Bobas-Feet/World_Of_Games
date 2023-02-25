@@ -35,18 +35,18 @@ def load_game():
 
     while True:
         try:
-            g = int(input('What game would you like to play?'
+            g = int(input('Choose a game to play'
                           '\n1: The Memory Game\n2: The Guessing Game\n3: The Currency Roulette Game \n'))
 
             if int(g) == 1:
-                print(f'{game1}: A sequence of numbers will appear for 1 second, and you have'
-                      f' to guess it back.')
+                print(f'{game1}: A sequence of numbers will appear for 1 second, and you need'
+                      f'recall what the sequence of numbers was.')
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5] '))
                 MemoryGame.play(difficulty)
 
             if int(g) == 2:
-                print(f'{game2}: Guess a number and see if you chose'
-                      f' like the computer.')
+                print(f'{game2}: A numbers guessing game in which you need to guess the number that'
+                      f'\nwas generated randomly by the computer.')
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5] '))
                 GuessGame.play(difficulty)
 
