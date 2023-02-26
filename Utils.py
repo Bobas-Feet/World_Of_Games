@@ -1,10 +1,18 @@
-from pathlib import Path
+# from pathlib import Path
 
-folder_Path = 'C:/DevOps/WoG (project)/'
-SCORES_FILE_NAME = open(f'{folder_Path} Scores.txt', 'x')
-SCORES_FILE_NAME.close()
 
-BAD_RETURN_CODE = int(401)
+def user_score(points_for_winning):
+    scores_file_name = open('Scores.txt', 'w+')
+    scores_file_name.write(points_for_winning)
+    scores_file_name.close()
+
+    scores_file_name = open('Scores.txt', 'r+')
+    scores = scores_file_name.read()
+    scores_file_name.close()
+    return scores
+
+
+bad_return_code = int(401)
 
 
 def screen_cleaner():

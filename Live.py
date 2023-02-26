@@ -44,7 +44,8 @@ def load_game():
                       f'recall what the sequence of numbers was.')
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5] '))
                 MemoryGame.play(difficulty=difficulty)
-                Scores.add_score(difficulty)
+                if bool(MemoryGame) is True:
+                    Scores.add_score(difficulty)
 
             if int(g) == 2:
                 print(f'{game2}: A numbers guessing game in which you need to guess the number that'
