@@ -3,7 +3,7 @@
 import GuessGame
 import MemoryGame
 import CurrencyRouletteGame
-from Scores import add_score
+import Scores
 
 
 def welcome():
@@ -45,7 +45,7 @@ def load_game():
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5] '))
                 MemoryGame.play(difficulty)
                 if bool(MemoryGame) is True:
-                    add_score(difficulty=difficulty)
+                    Scores.add_score(difficulty)
 
             if int(g) == 2:
                 print(f'{game2}: A numbers guessing game in which you need to guess the number that'
@@ -53,7 +53,7 @@ def load_game():
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5] '))
                 GuessGame.play(difficulty)
                 if bool(GuessGame) is True:
-                    add_score(difficulty=difficulty)
+                    Scores.add_score(difficulty)
 
             if int(g) == 3:
                 print(f'{game3}: Try and guess the value of a random'
@@ -61,7 +61,7 @@ def load_game():
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5] '))
                 CurrencyRouletteGame.play(difficulty)
                 if bool(CurrencyRouletteGame) is True:
-                    add_score(difficulty=difficulty)
+                    Scores.add_score(difficulty)
 
         except ValueError:
             print('Invalid input. You can only enter numbers')
