@@ -1,8 +1,8 @@
 from pathlib import Path
 
-folder_Path = 'C:/DevOps/WoG (project)'
-SCORES_FILE_NAME = open(f'{folder_Path}/Scores.txt', 'x')
-
+folder_Path = 'C:/DevOps/WoG (project)/'
+SCORES_FILE_NAME = open(f'{folder_Path} Scores.txt', 'x')
+SCORES_FILE_NAME.close()
 
 BAD_RETURN_CODE = int(401)
 

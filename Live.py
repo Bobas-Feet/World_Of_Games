@@ -8,7 +8,7 @@ import Scores
 
 def welcome():
     name = input('What is your name? [You may use only letters,'
-                 '\nno numbers or special symbols (!@#$%^) and no spaces] ')
+                 '\nno numbers or special symbols (!@#$%^) and no spaces] ').lower()
 
     try:
         if any([i > 'z' or i < 'a' for i in name]):
@@ -43,9 +43,8 @@ def load_game():
                 print(f'{game1}: A sequence of numbers will appear for 1 second, and you need'
                       f'recall what the sequence of numbers was.')
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5] '))
-                MemoryGame.play(difficulty)
-                if bool(MemoryGame) is True:
-                    Scores.add_score(difficulty)
+                MemoryGame.play(difficulty=difficulty)
+                Scores.add_score(difficulty)
 
             if int(g) == 2:
                 print(f'{game2}: A numbers guessing game in which you need to guess the number that'

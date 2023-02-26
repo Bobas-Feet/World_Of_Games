@@ -29,7 +29,7 @@ def generate_sequence(difficulty):
 def get_list_from_user(difficulty):
 
     n = []
-    print(f"Let's begin the game. Insert {difficulty} numbers:")
+    print(f"Let's begin the game. Insert {difficulty} numbers, one number at a time and press [ENTER]:")
     for i in range(difficulty):
         n.append(int(input('What numbers do you remember seeing in the sequence above? ')))
 
