@@ -1,11 +1,11 @@
 # 24/2/2023
 
 from forex_python.converter import CurrencyRates
-import json
+# import json
 import os
-import urllib.request as r
+# import urllib.request as r
 import random
-from credentials import api_key
+# from credentials import api_key
 
 
 def get_money_interval(difficulty):
