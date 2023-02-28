@@ -1,20 +1,29 @@
 # 24/2/2023
 
-import json
+from forex_python.converter import CurrencyRates
+# import json
 import os
-import urllib.request as r
+# import urllib.request as r
 import random
-from credentials import api_key
+# from credentials import api_key
 
 
 def get_money_interval(difficulty):
 
-    url = f'https://v6.exchangerate-api.com/v6/{api_key}/pair/USD/ILS/'
-    response = r.urlopen(url)
-    data = json.load(response)
+    # url = f'https://v6.exchangerate-api.com/v6/{api_key}/pair/USD/ILS'
+    # response = r.urlopen(url)
+    # data = json.load(response)
 
-    ex = int(data["USD_ILS"])
+    cr = CurrencyRates()
+    cr.get_rates('USD')
+    # ex = int(data["USD_ILS"])
     rng = int(random.uniform(1, 100))
+    print(f'To play this game you are given ${rng}, YAY.')
+
+    from_currency = 'EUR'
+    to_currency = 'USD'
+    ex = cr.convert(from_currency, to_currency, 1)
+    print(ex)
     t = rng * ex
     low = int(t - (5 - difficulty))
     high = int(t + (5 - difficulty))
@@ -22,6 +31,7 @@ def get_money_interval(difficulty):
 
 
 def get_guess_from_user(rng):
+
     while True:
         try:
             guess = int(input(f"Guess the value of ${rng} in ILS: "))
@@ -29,7 +39,6 @@ def get_guess_from_user(rng):
             print("Error: You can only enter numbers.")
             continue
         return guess
-    return
 
 
 def play(difficulty):
