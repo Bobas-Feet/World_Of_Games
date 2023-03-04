@@ -13,8 +13,8 @@ def get_money_interval(difficulty):
     url = f'https://v6.exchangerate-api.com/v6/{api_key}/pair/USD/ILS/{AMOUNT}'
     response = requests.get(url)
     data = response.json()
-    print(data['conversion_rate'])
-
+    converted = data['conversion_rate']
+    print(f'The exchange rate for today, {now}, is {converted}')
     rng = int(random.uniform(1, 101))
     print(f'You get ${rng}, YAY.')
     interval = (rng - (5 - difficulty), rng + (5 - difficulty))
