@@ -33,10 +33,13 @@ def get_guess_from_user(rng):
                                            f' is in ILS? \nYou have 10 seconds to answer: ', timeout=10))
             if guess > rng:
                 print('Too high.')
+                pass
             elif guess < rng:
                 print('Too low.')
+                pass
             else:
                 print('Correct!')
+                break
 
         except ValueError:
             print("Error: You can only enter numbers.")
