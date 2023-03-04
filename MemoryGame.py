@@ -12,7 +12,7 @@ def generate_sequence(difficulty):
         difficulty = int(difficulty)
 
         rng = []
-        for i in range(difficulty):
+        for i in range(1, difficulty):
             rng.append(random.randint(1, 101))
         print(rng)
 
