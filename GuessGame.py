@@ -17,6 +17,9 @@ def get_guess_from_user(difficulty, secret_number):
         if int(count) >= 3:
             print("Nope. You're out of attempts.")
             quit()
+        elif int(count) == 3 and guess is True:
+            print(f'Congratulations, You got it right in attempt #{count}.')
+            quit()
         else:
             pass
 
