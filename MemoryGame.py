@@ -1,5 +1,3 @@
-# 24/2/23
-
 import random
 import time
 
@@ -12,7 +10,7 @@ def generate_sequence(difficulty):
         difficulty = int(difficulty)
 
         rng = []
-        for i in range(1, difficulty):
+        for i in range(1, difficulty + 1):
             rng.append(random.randint(1, 101))
         print(rng)
 
