@@ -48,10 +48,11 @@ def play(difficulty):
 
     rng = generate_sequence(difficulty)
     n = get_list_from_user(difficulty)
-    is_list_equal(n, rng)
+
     if is_list_equal(n=n, rng=rng):
         print('Yay. You got all the answers right.')
-        quit()
+        return True
     else:
         print('Well, Fuck. You lost.')
-        quit()
+        return False
+

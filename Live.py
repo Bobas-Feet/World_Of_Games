@@ -43,8 +43,7 @@ def load_game():
                 print(f'{game1}: A sequence of numbers will appear for 1 second, and you need'
                       f' to recall what the sequence of numbers was.')
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5] '))
-                MemoryGame.play(difficulty)
-                if bool(MemoryGame) is True:
+                if bool(MemoryGame.play(difficulty)) is True:
                     add_score(difficulty=difficulty)
 
             if int(g) == 2:

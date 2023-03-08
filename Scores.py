@@ -8,9 +8,9 @@ def add_score(difficulty):
     print(file_path)
 
     try:
-        score_file = open('Scores.txt', 'w+')
-        score = open(Path('Scores.txt'), 'a')
-        score_file.write(f' ,{points_for_winning}')
+        score_file = open('C:/DevOps/WoG (project)/Scores.txt', 'w')
+        # score = open(Path('Scores.txt'), 'a')
+        score_file.write(f'{points_for_winning}')
         # if score_file.read() == 'r':
         #     contents = score_file.read()
         #     print(contents)
@@ -19,4 +19,3 @@ def add_score(difficulty):
         score = open(f'{file_path}/Scores.txt', 'x')
         score.write(points_for_winning)
 
-    return score
