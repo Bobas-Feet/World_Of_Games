@@ -6,7 +6,7 @@ from Scores import add_score
 
 def welcome():
     name = input('What is your name? [You may use only letters,'
-                 '\nno numbers or special symbols (!@#$%^) and no spaces] ').lower()
+                 '\nno numbers or special symbols (!@#$%^) and no spaces]\n').lower()
 
     try:
         if any([i > 'z' or i < 'a' for i in name]):
@@ -39,7 +39,7 @@ def load_game():
             if int(g) == 1:
                 print(f'{game1}: A sequence of numbers will appear for 1 second, and you need'
                       f' to recall what the sequence of numbers was.')
-                difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5] '))
+                difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
                 elif bool(MemoryGame.play(difficulty)) is True:
@@ -48,7 +48,7 @@ def load_game():
             if int(g) == 2:
                 print(f'{game2}: A numbers guessing game in which you need to guess the number that'
                       f'\nwas generated randomly by the computer.')
-                difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5] '))
+                difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
                 elif bool(GuessGame.play(difficulty)) is True:
@@ -57,7 +57,7 @@ def load_game():
             if int(g) == 3:
                 print(f'{game3}: Try and guess the value of a random'
                       f' amount of USD in ILS.')
-                difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5] '))
+                difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
                 elif bool(CurrencyRouletteGame.play(difficulty)) is True:
