@@ -15,7 +15,7 @@ def welcome():
         elif name == '' or name == ' ':
             print('Error. You cannot leave this field empty.')
             return welcome()
-        elif 3 < len(name) > 15:
+        elif 3 > len(str(name)) > 15:
             print('Error. Username either too long or too short')
             return welcome()
         else:
@@ -34,7 +34,8 @@ def load_game():
     while True:
         try:
             g = int(input('Choose a game to play'
-                          '\n1: The Memory Game\n2: The Guessing Game\n3: The Currency Roulette Game \n'))
+                          '\n1: The Memory Game\n2: The Guessing Game'
+                          '\n3: The Currency Roulette Game \n\nOr [0] to exit\n'))
 
             if int(g) == 1:
                 print(f'{game1}: A sequence of numbers will appear for 1 second, and you need'
@@ -63,6 +64,21 @@ def load_game():
                 elif bool(CurrencyRouletteGame.play(difficulty)) is True:
                     add_score(difficulty=difficulty)
 
+            while int(g) == 0:
+                quit_game = input('Are you sure you want to quit? [y/n]\n').lower()
+                if quit_game == 'y':
+                    print('Goodbye, we hope to see you again.')
+                    quit()
+                elif quit_game == 'n':
+                    load_game()
+                else:
+                    continue
+
+                #     if quit_game == 'y':
+                #         print('\nGoodbye, we hope to see you again.')
+                #         quit()
+                #     else:
+                #         load_game()
         except ValueError:
             print('Invalid input. You can only enter numbers')
         except KeyboardInterrupt:

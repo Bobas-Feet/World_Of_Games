@@ -5,7 +5,7 @@ import random
 from credentials import api_key
 
 
-def get_money_interval(difficulty):
+def get_money_interval():
 
     today = datetime.date.today()
 
@@ -17,36 +17,39 @@ def get_money_interval(difficulty):
 
     print(f'The exchange rate for today, {today}, is: \n1 USD = {converted} ILS')
     rng = int(random.uniform(1, 101))
-    print(f'You get ${rng}, YAY.')
-
     x = rng * converted
-    print(f'the converted amount is {x} ILS')
+    # x = int(rng * converted)
 
+    print(f'You get ${rng}, YAY. The converted amount is {x} ILS') # no need for this
+    get_guess_from_user(rng, x)
     return rng
 
 
-def get_guess_from_user(rng):
+def get_guess_from_user(rng, x):
 
     try:
-        guess = float(input(f'Can you calculate how much ${rng}'
-                            f' is in ILS? \nYou have 10 seconds to answer: '))
-        interval = float(rng - 5)
-        if (guess - rng + 5) or (guess - rng - 5):
-            print(interval)
+        guess = int(input(f'Can you calculate how much ${rng}'
+                          f' is in ILS? \nYou have 10 seconds to answer: '))
+        print(guess)
+
+        if guess == x - 5 or guess == x + 5:
+            # print('You got it right, you are a lean-mean-calculating machine.')
             return True
+        else:
+            # print('You suck')
+            return False
+
     except ValueError:
         print("Error: You can only enter numbers.")
     except Exception:
         timed_out = 'Too slow. You timed out.'
         print(timed_out)
-    return False
 
 
 def play(difficulty):
-    rng = get_money_interval(difficulty)
-    if get_guess_from_user(rng):
-        print('You got it right, you are a lean-mean-calculating machine.')
+    if get_money_interval() is True:
+        print('you win')
         return True
     else:
-        print('Well, Fuck. You lost.')
+        print('you lose')
         return False

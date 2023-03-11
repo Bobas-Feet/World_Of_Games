@@ -4,23 +4,31 @@ import time
 
 def generate_number(difficulty):
 
-    print('Generating...')
-    time.sleep(2.5)
     while True:
         if difficulty == 1:
             print('Very Easy')
+            print('Generating...')
+            time.sleep(2.5)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 2:
             print('Easy')
+            print('Generating...')
+            time.sleep(2.5)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 3:
             print('Medium')
+            print('Generating...')
+            time.sleep(2.5)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 4:
             print('Hard')
+            print('Generating...')
+            time.sleep(2.5)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 5:
             print('Very Hard')
+            print('Generating...')
+            time.sleep(2.5)
             return random.randint(1, (difficulty * 5))
         else:
             print('Unknown difficulty')
@@ -46,16 +54,14 @@ def get_guess_from_user(difficulty):
         else:
             compare_results(guess, rng)
             break
-    return play(difficulty) if input('Play again? (y/ Any key to exit) ').lower() == 'y' else 0
+    return play(difficulty) if input('Do you want to play again? [y/ Any key to exit] ').lower() == 'y' else 0
 
 
 def compare_results(guess, rng):
 
     if guess == rng:
-
         print(f'You got it right. Good for you.\n')
         return True
-
     else:
         print('You got it wrong. You suck at this.\n')
         return False
