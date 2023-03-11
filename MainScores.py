@@ -1,11 +1,13 @@
 from flask import Flask, render_template
 from pathlib import Path
+import Scores
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def score_server():
+
     try:
         score_file = open(Path("Scores.txt"), "r")
         score = score_file.read()
