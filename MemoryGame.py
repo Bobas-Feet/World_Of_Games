@@ -15,7 +15,7 @@ def generate_sequence(difficulty):
         print(rng)
 
         time.sleep(0.7)
-        for b in range(0, 5):
+        for b in range(0, 10000):
             print('')
 
         return rng

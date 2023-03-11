@@ -3,6 +3,7 @@ import time
 
 
 def generate_number(difficulty):
+
     print('Generating...')
     time.sleep(2.5)
     while True:
@@ -28,7 +29,6 @@ def generate_number(difficulty):
 def get_guess_from_user(difficulty):
 
     rng = generate_number(difficulty)
-    print(rng)
     count = 0
     while True:
         count += 1
@@ -63,11 +63,3 @@ def compare_results(guess, rng):
 
 def play(difficulty):
     get_guess_from_user(difficulty)
-
-
-
-    # secret = generate_number(difficulty)
-    # if compare_results(generate_number(difficulty), get_guess_from_user(difficulty, secret)):
-    #     return True
-    # else:
-    #     return False
