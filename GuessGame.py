@@ -1,50 +1,73 @@
 import random
+import time
 
 
 def generate_number(difficulty):
-    secret_number = random.randint(1, int(difficulty) + 3)
+    print('Generating...')
+    time.sleep(2.5)
+    while True:
+        if difficulty == 1:
+            print('Very Easy')
+            return random.randint(1, (difficulty * 5))
+        elif difficulty == 2:
+            print('Easy')
+            return random.randint(1, (difficulty * 5))
+        elif difficulty == 3:
+            print('Medium')
+            return random.randint(1, (difficulty * 5))
+        elif difficulty == 4:
+            print('Hard')
+            return random.randint(1, (difficulty * 5))
+        elif difficulty == 5:
+            print('Very Hard')
+            return random.randint(1, (difficulty * 5))
+        else:
+            print('Unknown difficulty')
 
-    return secret_number
 
+def get_guess_from_user(difficulty):
 
-def get_guess_from_user(difficulty, secret_number):
-
+    rng = generate_number(difficulty)
+    print(rng)
     count = 0
-    while difficulty != secret_number:
+    while True:
         count += 1
-        guess = int(input('Now, try and guess the number that the computer is thinking about... '))
+        guess = int(input(f'The number the computer is thinking about is between 1 and {difficulty * 5}.'
+                          f'\nCan you guess what it is? '))
+        if int(count) > 3:
+            print("Well, it seems you're out of attempts.")
+            compare_results(guess, rng)
+            break
 
-        if int(count) >= 3:
-            print("Nope. You're out of attempts.")
-            quit()
-        elif int(count) == 3 and guess is True:
-            print(f'Congratulations, You got it right in attempt #{count}.')
-            quit()
+        if rng > guess:
+            print('Nope. Maybe higher.')
+        elif rng < guess:
+            print('Nope. Maybe lower.')
         else:
-            pass
-
-        if guess < secret_number:
-            print('Nope. Maybe higher...?')
-        elif guess > secret_number:
-            print('Nope. Maybe lower...?')
-        else:
-            print(f'Congratulations, You got it right in attempt #{count}.')
-            quit()
+            compare_results(guess, rng)
+            break
+    return play(difficulty) if input('Play again? (y/ Any key to exit) ').lower() == 'y' else 0
 
 
-def compare_results(guess, secret_number):
-    compare_guess = guess == secret_number
-    if compare_guess is True:
-        print('You win')
+def compare_results(guess, rng):
+
+    if guess == rng:
+
+        print(f'You got it right. Good for you.\n')
+        return True
+
     else:
-        print('You lose')
-    quit()
-    return guess == secret_number
+        print('You got it wrong. You suck at this.\n')
+        return False
 
 
 def play(difficulty):
-    secret = generate_number(difficulty)
-    if compare_results(generate_number(difficulty), get_guess_from_user(difficulty, secret)):
-        return True
-    else:
-        return False
+    get_guess_from_user(difficulty)
+
+
+
+    # secret = generate_number(difficulty)
+    # if compare_results(generate_number(difficulty), get_guess_from_user(difficulty, secret)):
+    #     return True
+    # else:
+    #     return False

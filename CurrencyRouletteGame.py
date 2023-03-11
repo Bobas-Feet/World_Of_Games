@@ -30,7 +30,9 @@ def get_guess_from_user(rng):
     try:
         guess = float(input(f'Can you calculate how much ${rng}'
                             f' is in ILS? \nYou have 10 seconds to answer: '))
+        interval = float(rng - 5)
         if (guess - rng + 5) or (guess - rng - 5):
+            print(interval)
             return True
     except ValueError:
         print("Error: You can only enter numbers.")
