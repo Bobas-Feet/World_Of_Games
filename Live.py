@@ -48,7 +48,7 @@ def load_game():
                     print('Your only options here are [1/2/3/4/5]')
                 elif bool(MemoryGame.play(difficulty)) is True:
                     add_score(difficulty=difficulty)
-                    MainScores.app.run()
+                    # MainScores.app.run()
 
             if int(g) == 2:
                 print(f'{game2}: A numbers guessing game in which you need to guess the number that'
