@@ -1,6 +1,7 @@
-from pathlib import Path
 
-score_file_name = open(Path('score.txt'), 'x')
+Path = 'C:/DevOps/WoG (project)/'
+
+score_file_name = open(f'{Path}Scores.txt', 'w')
 
 bad_return_code = int(401)
 

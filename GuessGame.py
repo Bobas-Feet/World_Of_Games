@@ -45,7 +45,7 @@ def get_guess_from_user(difficulty):
         if int(count) > 3:
             print("Well, it seems you're out of attempts.")
             compare_results(guess, rng)
-            break
+            return False
 
         if rng > guess:
             print('Nope. Maybe higher.')
@@ -53,8 +53,8 @@ def get_guess_from_user(difficulty):
             print('Nope. Maybe lower.')
         else:
             compare_results(guess, rng)
-            break
-    return play(difficulty) if input('Do you want to play again? [y/ Any key to exit] ').lower() == 'y' else 0
+            return True
+    # return play(difficulty) if input('Do you want to play again? [y/ Any key to exit] ').lower() == 'y' else 0
 
 
 def compare_results(guess, rng):
@@ -68,4 +68,7 @@ def compare_results(guess, rng):
 
 
 def play(difficulty):
-    get_guess_from_user(difficulty)
+    if get_guess_from_user(difficulty):
+        return True
+    else:
+        return False

@@ -50,9 +50,9 @@ def play(difficulty):
     n = get_list_from_user(difficulty)
 
     if is_list_equal(n=n, rng=rng):
-        print('Yay. You got all the answers right.')
+        print('Yay. You got all the answers right.\n')
         return True
     else:
-        print('Well, Fuck. You lost.')
+        print('Well, Fuck. You lost.\n')
         return False
 
