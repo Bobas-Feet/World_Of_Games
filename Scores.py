@@ -9,9 +9,9 @@ def add_score(difficulty):
 
     try:
         score_file = open(f'{file_path}Scores.txt', 'a+')
-
         score_file.write(f'{today} - Your Score for winning on difficulty {difficulty} is - {points_for_winning}')
         score_file.write(f'\n')
+        score_file.close()
 
     except FileNotFoundError:
         score = open(f'{file_path}/Scores.txt', 'x')

@@ -3,7 +3,7 @@ import MemoryGame
 import CurrencyRouletteGame
 from Scores import add_score
 from Utils import screen_cleaner
-import MainScores
+# import MainScores
 
 
 def welcome():
@@ -48,7 +48,7 @@ def load_game():
                     print('Your only options here are [1/2/3/4/5]')
                 elif bool(MemoryGame.play(difficulty)) is True:
                     add_score(difficulty=difficulty)
-                    MainScores.score_server()
+                    MainScores.app.run()
 
             if int(g) == 2:
                 print(f'{game2}: A numbers guessing game in which you need to guess the number that'
@@ -58,7 +58,7 @@ def load_game():
                     print('Your only options here are [1/2/3/4/5]')
                 elif bool(GuessGame.play(difficulty)) is True:
                     add_score(difficulty=difficulty)
-                    MainScores.score_server()
+                    # MainScores.score_server()
 
             if int(g) == 3:
                 print(f'{game3}: Try and guess the value of a random'
@@ -68,7 +68,7 @@ def load_game():
                     print('Your only options here are [1/2/3/4/5]')
                 elif bool(CurrencyRouletteGame.play(difficulty)) is True:
                     add_score(difficulty=difficulty)
-                    MainScores.score_server()
+                    # MainScores.score_server()
 
             while int(g) == 0:
                 quit_game = input('Are you sure you want to quit? [y/n]\n').lower()

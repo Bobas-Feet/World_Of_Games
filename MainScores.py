@@ -1,19 +1,17 @@
 from flask import Flask, render_template
-from Scores import *
+import Scores
 
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route('/')
 def score_server():
+    from Scores import add_score
+
     file_path = 'C:/DevOps/WoG (project)/'
     try:
-        score_file = open(f'{file_path}Scores.txt', 'r')
+        score_file = open(f'{file_path}Scores.txt', 'a')
         score = score_file.read()
-        return render_template('score.html', SCORE=score)
+        return render_template('Score.html', SCORE=score)
     except FileNotFoundError or FileExistsError:
         return render_template('error.html', ERROR='Unknown Error')
-
-
-app.run()
-
