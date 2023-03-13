@@ -2,7 +2,6 @@ import GuessGame
 import MemoryGame
 import CurrencyRouletteGame
 from Scores import add_score
-import re
 # from Utils import screen_cleaner
 # import MainScores
 
