@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul>
+    {% for AppScore in games %}
+        <li>{{ AppScore.name }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
