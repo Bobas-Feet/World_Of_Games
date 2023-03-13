@@ -1,5 +1,4 @@
-from Live import welcome, load_game
-
+from Live import load_game, welcome
 
 welcome()
 

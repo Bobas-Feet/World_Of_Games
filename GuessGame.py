@@ -3,30 +3,29 @@ import time
 
 
 def generate_number(difficulty):
-
     while True:
         if difficulty == 1:
-            print('Very Easy')
+            print('The chosen difficulty is: Very Easy')
             print('Generating...')
             time.sleep(2.5)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 2:
-            print('Easy')
+            print('The chosen difficulty is: Easy')
             print('Generating...')
             time.sleep(2.5)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 3:
-            print('Medium')
+            print('The chosen difficulty is: Medium')
             print('Generating...')
             time.sleep(2.5)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 4:
-            print('Hard')
+            print('The chosen difficulty is: Hard')
             print('Generating...')
             time.sleep(2.5)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 5:
-            print('Very Hard')
+            print('The chosen difficulty is: Very Hard')
             print('Generating...')
             time.sleep(2.5)
             return random.randint(1, (difficulty * 5))
@@ -40,10 +39,10 @@ def get_guess_from_user(difficulty):
     count = 0
     while True:
         count += 1
-        guess = int(input(f'The number the computer is thinking about is between 1 and {difficulty * 5}.'
-                          f'\nCan you guess what it is? '))
-        if int(count) > 3:
-            print("Well, it seems you're out of attempts.")
+        guess = int(input(f'The number the computer is thinking about is between 1 and {difficulty * 5}'
+                          f'\nCan you guess what it is?\n'))
+        if int(count) >= 3:
+            # print("\nWell, it seems you're out of attempts.")
             compare_results(guess, rng)
             return False
 
@@ -54,7 +53,6 @@ def get_guess_from_user(difficulty):
         else:
             compare_results(guess, rng)
             return True
-    # return play(difficulty) if input('Do you want to play again? [y/ Any key to exit] ').lower() == 'y' else 0
 
 
 def compare_results(guess, rng):
@@ -69,6 +67,12 @@ def compare_results(guess, rng):
 
 def play(difficulty):
     if get_guess_from_user(difficulty):
-        return True
+        return True, play(difficulty) if input("Do you want to play again?"
+                                               " [Enter 'Y' to play another round/"
+                                               " Any other key to exit] ").lower() == 'y' else 0
     else:
-        return False
+        return False, play(difficulty) if input("Do you want to play again?"
+                                                " [Enter 'Y' to play another round/"
+                                                " Any other key to exit] ").lower() == 'y' else 0
+
+

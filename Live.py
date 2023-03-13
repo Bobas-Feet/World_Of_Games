@@ -9,26 +9,24 @@ import re
 
 def welcome():
     try:
-
-        name = input('Greetings newcomer, what is your name?\n'
-                     '[No numbers [0-9], no special symbols [_!@#$%^] and no spaces,'
-                     ' you may use only letters.]\n')
+        name = input('Greetings Newcomer, what is your name? '
+                     '[Username must be 3-15 characters, only letters allowed.]\n')
 
         if any([i > 'z' or i < 'a' for i in name]):
-            print("Error. Contains illegal characters")
+            print('Error. Contains illegal characters.\n')
+            return welcome()
+        elif len(name) > 15 or len(name) < 3:
+            print('Error. Username either too long or too short.\n')
             return welcome()
         elif name == '' or name == ' ':
-            print('Error. You cannot leave this field empty.')
-            return welcome()
-        elif 3 > len(name) > 15:
-            print('Error. Username either too long or too short')
+            print('Error. You cannot leave this field empty.\n')
             return welcome()
         else:
-            print(f'Welcome {name}, to the World of Games (WoG).'
-                  f' Here you can play many cool games')
+            print(f'Welcome [{name}], to the World of Games-(WoG).'
+                  f' Here you can play many cool games.')
 
     except ValueError:
-        print('invalid input')
+        print('invalid input.')
 
 
 def load_game():
@@ -38,9 +36,9 @@ def load_game():
 
     while True:
         try:
-            g = int(input('Choose a game to play'
-                          '\n1: The Memory Game\n2: The Guessing Game'
-                          '\n3: The Currency Roulette Game \n\nOr [0] to exit\n'))
+            g = int(input(f'\nChoose a game to play:\n'
+                          f'\n1: The Memory Game\n2: The Guessing Game'
+                          f'\n3: The Currency Roulette Game \n\nOr [0] to exit\n'))
 
             if int(g) == 1:
                 print(f'{game1}: A sequence of numbers will appear for 1 second, and you need'

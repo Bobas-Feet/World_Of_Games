@@ -51,8 +51,13 @@ def play(difficulty):
 
     if is_list_equal(n=n, rng=rng):
         print('Yay. You got all the answers right.\n')
-        return True
+        return True, play(difficulty) if input("Do you want to play again?"
+                                               " [Enter 'Y' to play another round/"
+                                               " Any other key to exit] ").lower() == 'y' else 0
     else:
         print('Well, Fuck. You lost.\n')
-        return False
+        return False, play(difficulty) if input("Do you want to play again?"
+                                                " [Enter 'Y' to play another round/"
+                                                " Any other key to exit] ").lower() == 'y' else 0
+
 
