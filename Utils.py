@@ -8,7 +8,7 @@ bad_return_code = int(401)
 
 def screen_cleaner():
     import os
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else ' ')
 
 
 

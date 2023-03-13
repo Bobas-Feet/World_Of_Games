@@ -2,23 +2,25 @@ import GuessGame
 import MemoryGame
 import CurrencyRouletteGame
 from Scores import add_score
-from Utils import screen_cleaner
+import re
+# from Utils import screen_cleaner
 # import MainScores
 
 
 def welcome():
-    name = input('Greetings newcomer, what is your name?\n'
-                 '[No numbers [0-9], no special symbols [_!@#$%^] and no spaces,'
-                 ' you may use only letters.]\n').lower()
-
     try:
+
+        name = input('Greetings newcomer, what is your name?\n'
+                     '[No numbers [0-9], no special symbols [_!@#$%^] and no spaces,'
+                     ' you may use only letters.]\n')
+
         if any([i > 'z' or i < 'a' for i in name]):
             print("Error. Contains illegal characters")
             return welcome()
         elif name == '' or name == ' ':
             print('Error. You cannot leave this field empty.')
             return welcome()
-        elif 3 > len(str(name)) > 15:
+        elif 3 > len(name) > 15:
             print('Error. Username either too long or too short')
             return welcome()
         else:
@@ -26,7 +28,7 @@ def welcome():
                   f' Here you can play many cool games')
 
     except ValueError:
-        print('invalid')
+        print('invalid input')
 
 
 def load_game():
@@ -74,7 +76,6 @@ def load_game():
                 quit_game = input('Are you sure you want to quit? [y/n]\n').lower()
                 if quit_game == 'y':
                     print('Goodbye, we hope to see you again.')
-                    screen_cleaner()
                     quit()
                 elif quit_game == 'n':
                     load_game()
