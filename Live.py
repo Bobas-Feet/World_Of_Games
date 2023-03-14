@@ -28,6 +28,28 @@ def welcome():
         print('invalid input.')
 
 
+def welcome_h():
+    try:
+        name = input('שלום, מה שמך? '
+                     '[שם המשתמש מוכרך להיות באותיות בלבד, ללא רווחים וסימנים מיוחדים, ובין 2-15 תווים.]\n')
+
+        if any([i > 'ת' or i < 'א' for i in name]):
+            print('תקלה. מכיל סימנים לא חוקיים.\n')
+            return welcome_h()
+        if len(name) > 15 or len(name) < 2:
+            print('תקלה. שם המשתמש ארוך או קצר מידי.\n')
+            return welcome_h()
+        elif name == '' or name == ' ':
+            print('תקלה. לא ניתן להשאיר שדה זה ריק.\n')
+            return welcome_h()
+        else:
+            print('ברוכים הבאים, ' + '[' + name + ']' + ' לעולם המשחקים (WoG).\n'
+                                                        'כאן תוכל לשחק במשחקים נפלאים ומאתגרים.')
+
+    except ValueError:
+        print('הזנה לא חוקית.')
+
+
 def load_game():
     game1 = 'The Memory Game'
     game2 = 'The Guessing Game'
@@ -46,7 +68,7 @@ def load_game():
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
                 elif bool(MemoryGame.play(difficulty)) is True:
-                    # add_score(difficulty=difficulty)
+                    add_score(difficulty=difficulty)
                     MainScores.app.run(difficulty=difficulty)
 
             if int(g) == 2:
@@ -56,7 +78,7 @@ def load_game():
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
                 elif bool(GuessGame.play(difficulty)) is True:
-                    # add_score(difficulty=difficulty)
+                    add_score(difficulty=difficulty)
                     MainScores.score_server(difficulty=difficulty)
 
             if int(g) == 3:
@@ -66,7 +88,7 @@ def load_game():
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
                 elif bool(CurrencyRouletteGame.play(difficulty)) is True:
-                    # add_score(difficulty=difficulty)
+                    add_score(difficulty=difficulty)
                     MainScores.score_server(difficulty=difficulty)
 
             while int(g) == 0:
@@ -84,3 +106,5 @@ def load_game():
         except KeyboardInterrupt:
             print('\nGoodbye, we hope to see you again.')
             quit()
+
+
