@@ -112,6 +112,6 @@ def play_h(difficulty):
         print('כל הכבוד, כל התשובות היו נכונות וניצחת במשחק.\n')
         return True, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
     else:
-        print('Well, Fuck. You lost.\n')
+        print('ובכן, הפסדת.\n')
         return False, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
 
