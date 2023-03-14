@@ -139,6 +139,6 @@ def get_guess_from_user_h(difficulty, rng, x, converted):
 
 def play_h(difficulty):
     if get_money_interval_h(difficulty):
-        return True, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]') == 'כ' else 0
+        return True, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
     else:
-        return False, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]') == 'כ' else 0
+        return False, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0

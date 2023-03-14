@@ -110,8 +110,8 @@ def play_h(difficulty):
 
     if is_list_equal_h(n=n, rng=rng):
         print('כל הכבוד, כל התשובות היו נכונות וניצחת במשחק.\n')
-        return True, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]') == 'כ' else 0
+        return True, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
     else:
         print('Well, Fuck. You lost.\n')
-        return False, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]') == 'כ' else 0
+        return False, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
 
