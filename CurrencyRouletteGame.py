@@ -132,7 +132,7 @@ def get_guess_from_user_h(difficulty, rng, x, converted):
             return False
 
     except ValueError:
-        print('תקלה. ניתן להזין רק מספרים')
+        print('תקלה. ניתן להזין רק מספרים.')
 
     return
 
