@@ -34,13 +34,13 @@ def welcome_h():
                      '[שם המשתמש מוכרך להיות באותיות בלבד, ללא רווחים וסימנים מיוחדים, ובין 2-15 תווים.]\n')
 
         if any([i > 'ת' or i < 'א' for i in name]):
-            print('תקלה. מכיל סימנים לא חוקיים.\n')
+            print('שגיאה. מכיל סימנים לא חוקיים.\n')
             return welcome_h()
         if len(name) > 15 or len(name) < 2:
-            print('תקלה. שם המשתמש ארוך או קצר מידי.\n')
+            print('שגיאה. שם המשתמש ארוך או קצר מידי.\n')
             return welcome_h()
         elif name == '' or name == ' ':
-            print('תקלה. לא ניתן להשאיר שדה זה ריק.\n')
+            print('שגיאה. לא ניתן להשאיר שדה זה ריק.\n')
             return welcome_h()
         else:
             print('ברוכים הבאים, ' + '[' + name + ']' + ' לעולם המשחקים (WoG).\n'
@@ -57,7 +57,7 @@ def load_game_h():
 
     while True:
         try:
-            g = int(input(f'\nאנא בחר/י משחק:\n'
+            g = int(input(f'\nאנא בחר/י משחק:   \n'
                           f'\n 1: משחק הזיכרון  \n2: משחק הניחושים  '
                           f'\n3: משחק רולטה מט"ח\n\nאו [0] ליציאה     \n'))
 
@@ -100,10 +100,11 @@ def load_game_h():
                     continue
 
         except ValueError:
-            print('הנזה לא חוקית, ניתן להזין רק מספרים.')
+            print('שגיאה, ניתן להזין רק מספרים.')
         except KeyboardInterrupt:
-            print('\n.להתראות. נשמח לראותך שוב.')
+            print('\n.להתראות. נשמח לראותך שוב')
             quit()
+
 
 
 def load_game():
