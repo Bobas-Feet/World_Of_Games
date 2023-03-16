@@ -106,7 +106,6 @@ def load_game_h():
             quit()
 
 
-
 def load_game():
     game1 = 'The Memory Game'
     game2 = 'The Guessing Game'
@@ -163,5 +162,3 @@ def load_game():
         except KeyboardInterrupt:
             print('\nGoodbye, we hope to see you again.')
             quit()
-
-
