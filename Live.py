@@ -63,6 +63,7 @@ def load_game_h():
 
             if int(g) == 1:
                 print(f'{game1}: רצף של מספרים רנדומליים יופיעו ל-1 שניות, והמשתמש/ת צריך להזין את הרצף כפי שהופיע.')
+                print('----------------------------------------')
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
@@ -72,6 +73,7 @@ def load_game_h():
 
             if int(g) == 2:
                 print(f'{game2}: משחק אשר צריך לנחש מספר רנדומלי שנוצר על ידי המחשב.')
+                print('----------------------------------------')
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
@@ -80,8 +82,9 @@ def load_game_h():
                     MainScores.app.run(difficulty=difficulty)
 
             if int(g) == 3:
-                print(f'{game3}: נסי/ה לחשב את ערך ההמרה בין דולר לש"ח, '
+                print(f'{game3}: נסי/ה לחשב את ערך ההמרה, לפי שער החליפין העדכני, \nבין דולר לש"ח, '
                       f'כאשר המשתמש/ת מקבלים סכום רנדומלי שנוצר ע"י המחשב.')
+                print('----------------------------------------')
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
@@ -92,7 +95,7 @@ def load_game_h():
             while int(g) == 0:
                 quit_game = input('האם אתה בטוח שאת/ה רוצה לצאת? [כ/ל]\n').lower()
                 if quit_game == 'כ':
-                    print('להתראות. נשמח לראותך שוב.')
+                    print('.להתראות. נשמח לראותך שוב')
                     quit()
                 elif quit_game == 'ל':
                     load_game_h()
@@ -102,7 +105,7 @@ def load_game_h():
         except ValueError:
             print('שגיאה, ניתן להזין רק מספרים.')
         except KeyboardInterrupt:
-            print('\n.להתראות. נשמח לראותך שוב')
+            print('\nלהתראות. נשמח לראותך שוב.')
             quit()
 
 
@@ -118,8 +121,9 @@ def load_game():
                           f'\n3: The Currency Roulette Game \n\nOr [0] to exit\n'))
 
             if int(g) == 1:
-                print(f'{game1}: A sequence of numbers will appear for 1 second, and you need'
-                      f' to recall what the sequence of numbers was.')
+                print(f'{game1}: A sequence of numbers will appear for 1 second, \nand you need'
+                      f' to recall what the sequence of numbers was.\n'
+                      f'--------------------------------------------------------')
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
@@ -129,7 +133,8 @@ def load_game():
 
             if int(g) == 2:
                 print(f'{game2}: A numbers guessing game in which you need to guess the number that'
-                      f'\nwas generated randomly by the computer.')
+                      f'\nwas generated randomly by the computer.\n'
+                      f'---------------------------------------------------')
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
@@ -139,7 +144,8 @@ def load_game():
 
             if int(g) == 3:
                 print(f'{game3}: Try and guess the value of a random'
-                      f' amount of USD in ILS.')
+                      f' amount of USD in ILS.\n'
+                      f'---------------------------------------------------')
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')

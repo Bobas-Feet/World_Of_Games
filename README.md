@@ -1,8 +1,7 @@
-# World_Of_Games
+# World Of Games
 Python project for DevOps course
 
 
-World Of Games
 
 In this project I will let the player choose between several short games, written in python, and allow for bi-lingual play (English/Hebrew).
 
@@ -11,4 +10,4 @@ guess it back.
 
 2. Guess Game - Guess the number to see if you chose like the computer.
 
-3. Currency Roulette - Try and guess the value of a random amount of USD in ILS.
+3. Currency Roulette Game - Try and guess the value of a random amount of USD in ILS.
