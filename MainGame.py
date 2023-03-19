@@ -14,8 +14,10 @@ while True:
             load_game_h()
 
         else:
-            print('You must choose correctly.\n')
+            print('You can only choose one or the other.\n')
             continue
 
     except ValueError:
-        print('You must choose correctly.\n')
+        print('You can only choose one or the other.\n')
+    except KeyboardInterrupt:
+        print('\nGoodbye, we hope to see you again.')
