@@ -2,6 +2,7 @@ import time
 import requests
 from datetime import datetime
 import random
+from Scores import add_score
 from credentials import api_key
 
 
@@ -69,6 +70,7 @@ def get_guess_from_user(difficulty, rng, x, converted):
 
 def play(difficulty):
     if get_money_interval(difficulty):
+        add_score(difficulty)
         return True, play(difficulty) if input("Do you want to play again?"
                                                " [Enter 'Y' to play another round/"
                                                " Any other key to exit] ").lower() == 'y' else 0

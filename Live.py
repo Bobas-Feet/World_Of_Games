@@ -2,14 +2,18 @@ import GuessGame
 import MemoryGame
 import CurrencyRouletteGame
 from Scores import add_score
-# from Utils import screen_cleaner
+from Utils import screen_cleaner
 import MainScores
+import importlib
 
 
 def welcome():
     try:
         name = input('Greetings Newcomer, what is your name? '
                      '[Username must be 3-15 characters, only letters allowed.]\n')
+
+        with open('name.txt', 'w+') as user_name_file:
+            user_name_file.write(name)
 
         if any([i > 'z' or i < 'a' for i in name]):
             print('Error. Contains illegal characters.\n')
@@ -29,9 +33,13 @@ def welcome():
 
 
 def welcome_h():
+
     try:
         name = input('שלום, מה שמך? '
                      '[שם המשתמש מוכרך להיות באותיות בלבד, ללא רווחים וסימנים מיוחדים, ובין 2-15 תווים.]\n')
+
+        # with open('name.txt', 'w+') as user_name_file:
+        #     user_name_file.write(name)
 
         if any([i > 'ת' or i < 'א' for i in name]):
             print('שגיאה. מכיל סימנים לא חוקיים.\n')
@@ -62,40 +70,51 @@ def load_game_h():
                           f'\n3: משחק רולטה מט"ח\n\nאו [0] ליציאה     \n'))
 
             if int(g) == 1:
+                print('================================================================'
+                      '=================================')
                 print(f'{game1}: רצף של מספרים רנדומליים יופיעו ל-1 שניות, והמשתמש/ת צריך להזין את הרצף כפי שהופיע.')
-                print('----------------------------------------')
+                print('================================================================'
+                      '=================================')
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
                 elif bool(MemoryGame.play_h(difficulty)) is True:
                     add_score(difficulty=difficulty)
-                    MainScores.app.run()
+                    if __name__ == '__main__':
+                        MainScores.app.run()
 
             if int(g) == 2:
+                print('==================================================='
+                      '===============')
                 print(f'{game2}: משחק אשר צריך לנחש מספר רנדומלי שנוצר על ידי המחשב.')
-                print('----------------------------------------')
+                print('==================================================='
+                      '===============')
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
                 elif bool(GuessGame.play_h(difficulty)) is True:
                     add_score(difficulty=difficulty)
-                    MainScores.app.run()
+                    if __name__ == '__main__':
+                        MainScores.app.run()
 
             if int(g) == 3:
-                print(f'{game3}: נסי/ה לחשב את ערך ההמרה, לפי שער החליפין העדכני, \nבין דולר לש"ח, '
-                      f'כאשר המשתמש/ת מקבלים סכום רנדומלי שנוצר ע"י המחשב.')
-                print('----------------------------------------')
+                print(f'===================================================================='
+                      f'\n{game3}: נסי/ה לחשב את ערך ההמרה לפי שער החליפין העדכני,\nבין דולר לש"ח, '
+                      f'כאשר המשתמש/ת מקבל/ת סכום רנדומלי שנוצר ע"י המחשב.')
+                print('====================================================================')
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
                 elif bool(CurrencyRouletteGame.play_h(difficulty)) is True:
                     add_score(difficulty=difficulty)
-                    MainScores.app.run()
+                    if __name__ == '__main__':
+                        MainScores.app.run()
 
             while int(g) == 0:
                 quit_game = input('האם אתה בטוח שאת/ה רוצה לצאת? [כ/ל]\n').lower()
                 if quit_game == 'כ':
                     print('להתראות. נשמח לראותך שוב.')
+                    screen_cleaner()
                     quit()
                 elif quit_game == 'ל':
                     load_game_h()
@@ -106,53 +125,72 @@ def load_game_h():
             print('שגיאה, ניתן להזין רק מספרים.')
         except KeyboardInterrupt:
             print('\nלהתראות. נשמח לראותך שוב.')
+            screen_cleaner()
             quit()
 
 
 def load_game():
+
     game1 = 'The Memory Game'
     game2 = 'The Guessing Game'
     game3 = 'The Currency Roulette Game'
 
+    # game_dict = {game1: game1, game2: game2, game3: game3}
+    # prev_game = None
+    # prev_difficulty = None
+
     while True:
         try:
-            g = int(input(f'\nChoose a game to play:\n'
-                          f'\n1: The Memory Game\n2: The Guessing Game'
-                          f'\n3: The Currency Roulette Game \n\nOr [0] to exit\n'))
+            g = int(input(f'===============================\nChoose a game to play:\n-------------------------------'
+                          f'\n1: The Memory Game\n-------------------------------\n2: The Guessing Game'
+                          f'\n-------------------------------\n3: The Currency Roulette Game\n'
+                          f'-------------------------------\nOr [0] to exit\n===============================\n'
+                          f'Please enter your decision here: '))
 
             if int(g) == 1:
-                print(f'{game1}: A sequence of numbers will appear for 1 second, \nand you need'
+                print(f'================================================================'
+                      f'\n{game1}: A sequence of numbers will appear for 1 second, \nand you need'
                       f' to recall what the sequence of numbers was.\n'
-                      f'--------------------------------------------------------')
+                      f'================================================================')
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
-                elif bool(MemoryGame.play(difficulty)) is True:
-                    add_score(difficulty=difficulty)
+                # elif bool(MemoryGame.play(difficulty)) is True:
+                else:
+                    MemoryGame.play(difficulty)
+                    # add_score(difficulty=difficulty)
                     if __name__ == '__main__':
                         MainScores.app.run()
 
             if int(g) == 2:
-                print(f'{game2}: A numbers guessing game in which you need to guess the number that'
+                print(f'===================================='
+                      f'=================================================='
+                      f'\n{game2}: A numbers guessing game in which you need to guess the number that'
                       f'\nwas generated randomly by the computer.\n'
-                      f'---------------------------------------------------')
+                      f'===================================='
+                      f'==================================================')
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
-                elif bool(GuessGame.play(difficulty)) is True:
-                    add_score(difficulty=difficulty)
-                    if __name__ == '__main__':
-                        MainScores.app.run()
+                # elif bool(GuessGame.play(difficulty)) is True:
+                else:
+                    GuessGame.play(difficulty)
+                    # add_score(difficulty=difficulty)
+                    # if __name__ == '__main__':
+                    #     MainScores.app.run()
 
             if int(g) == 3:
-                print(f'{game3}: Try and guess the value of a random'
+                print(f'====================================================================================='
+                      f'\n{game3}: Try and guess the value of a random'
                       f' amount of USD in ILS.\n'
-                      f'---------------------------------------------------')
+                      f'=====================================================================================')
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
-                elif bool(CurrencyRouletteGame.play(difficulty)) is True:
-                    add_score(difficulty=difficulty)
+                # elif bool(CurrencyRouletteGame.play(difficulty)) is True:
+                else:
+                    CurrencyRouletteGame.play(difficulty)
+                    # add_score(difficulty=difficulty)
                     if __name__ == '__main__':
                         MainScores.app.run()
 
@@ -160,6 +198,7 @@ def load_game():
                 quit_game = input('Are you sure you want to quit? [y/n]\n').lower()
                 if quit_game == 'y':
                     print('Goodbye, we hope to see you again.')
+                    screen_cleaner()
                     quit()
                 elif quit_game == 'n':
                     load_game()
@@ -170,4 +209,5 @@ def load_game():
             print('Invalid input. You can only enter numbers')
         except KeyboardInterrupt:
             print('\nGoodbye, we hope to see you again.')
+            screen_cleaner()
             quit()

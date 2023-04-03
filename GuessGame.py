@@ -1,6 +1,9 @@
 import random
 import time
 
+import MainScores
+from Scores import add_score
+
 
 def generate_number(difficulty):
     while True:
@@ -61,17 +64,21 @@ def compare_results(guess, rng):
         print(f'You got it right. Good for you.\n')
         return True
     else:
-        print('You got it wrong. You suck at this.\n')
+        print('You got it wrong. You suck at this.\nThe number that the computer was thinking of was {}'.format(rng))
         return False
 
 
 def play(difficulty):
+
     if get_guess_from_user(difficulty):
-        return True, play(difficulty) if input("Do you want to play again?"
+        add_score(difficulty)
+        if __name__ == '__main__':
+            MainScores.app.run()
+        return True, play(difficulty) if input("\nDo you want to play again?"
                                                " [Enter 'Y' to play another round/"
                                                " Any other key to exit] ").lower() == 'y' else 0
     else:
-        return False, play(difficulty) if input("Do you want to play again?"
+        return False, play(difficulty) if input("\nDo you want to play again?"
                                                 " [Enter 'Y' to play another round/"
                                                 " Any other key to exit] ").lower() == 'y' else 0
 

@@ -1,6 +1,9 @@
 import random
 import time
 
+import MainScores
+from Scores import add_score
+
 
 def generate_sequence(difficulty):
 
@@ -50,12 +53,14 @@ def play(difficulty):
     n = get_list_from_user(difficulty)
 
     if is_list_equal(n=n, rng=rng):
-        print('Yay. You got all the answers right.\n')
+        print('Yay. You got all the answers right.\n'.format(add_score(difficulty)))
+        if __name__ == '__main__':
+            MainScores.app.run()
         return True, play(difficulty) if input("Do you want to play again?"
                                                " [Enter 'Y' to play another round/"
                                                " Any other key to exit] ").lower() == 'y' else 0
     else:
-        print('Well, Fuck. You lost.\n')
+        print('Well, Fuck. You lost.\nThe numbers we were expecting were {}'.format(rng))
         return False, play(difficulty) if input("Do you want to play again?"
                                                 " [Enter 'Y' to play another round/"
                                                 " Any other key to exit] ").lower() == 'y' else 0
