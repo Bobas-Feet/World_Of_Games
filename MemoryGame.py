@@ -114,7 +114,7 @@ def play_h(difficulty):
     n = get_list_from_user_h(difficulty)
 
     if is_list_equal_h(n=n, rng=rng):
-        print('כל הכבוד, כל התשובות היו נכונות וניצחת במשחק.\n')
+        print('כל הכבוד, כל התשובות היו נכונות וניצחת במשחק.\n'.format(add_score(difficulty)))
         return True, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
     else:
         print('ובכן, הפסדת.\n')

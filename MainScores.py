@@ -34,10 +34,11 @@ def score_server():
                "><head><title>Scores Game</title>" \
                "<meta http-equiv='refresh' content='10'>" \
                "</head>" \
+               "<h1>---Game Score---</h1>" \
                "<body>" \
-               "<h1>Hello " + username + " your score is:" \
+               "<h2>Hello " + username + ", your score is:" \
                                          "<div id='score'>" + score + "</div>" \
-                                                                      "</h1>" \
+                                                                      "</h2>" \
                                                                       "</body>" \
                                                                       "</html>"
     else:
@@ -51,6 +52,14 @@ def score_server():
             + str(bad_return_code) + "</div>" \
                                      "</h1>" \
                                      "</html>"
+
+
+host = os.environ.get('FLASK_RUN_HOST', '0.0.0.0')
+port = int(os.environ.get('FLASK_RUN_PORT', 5000))
+debug = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
+
+if __name__ == '__main__':
+    app.run(host=host, debug=debug, port=port)
 
 
 @app.route('/last_score')
@@ -69,7 +78,7 @@ def old_score():
 
 host = os.environ.get('FLASK_RUN_HOST', '0.0.0.0')
 port = int(os.environ.get('FLASK_RUN_PORT', 5000))
-debug = os.environ.get('FLASK_DEBUG', 'True').lower() == 'true'
+debug = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
 
 if __name__ == '__main__':
     app.run(host=host, debug=debug, port=port)

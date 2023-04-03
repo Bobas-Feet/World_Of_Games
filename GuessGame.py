@@ -148,6 +148,7 @@ def compare_results_h(guess, rng):
 
 def play_h(difficulty):
     if get_guess_from_user_h(difficulty):
+        add_score(difficulty)
         return True, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
     else:
         return False, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0

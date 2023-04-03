@@ -13,7 +13,7 @@ def welcome():
                      '[Username must be 3-15 characters, only letters allowed.]\n')
 
         with open('name.txt', 'w+') as user_name_file:
-            user_name_file.write(name)
+            user_name_file.write(f'{name}')
 
         if any([i > 'z' or i < 'a' for i in name]):
             print('Error. Contains illegal characters.\n')
@@ -78,10 +78,12 @@ def load_game_h():
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
-                elif bool(MemoryGame.play_h(difficulty)) is True:
-                    add_score(difficulty=difficulty)
-                    if __name__ == '__main__':
-                        MainScores.app.run()
+                else:
+                    MemoryGame.play_h(difficulty)
+                # elif bool(MemoryGame.play_h(difficulty)) is True:
+                #     add_score(difficulty=difficulty)
+                #     if __name__ == '__main__':
+                #         MainScores.app.run()
 
             if int(g) == 2:
                 print('==================================================='
@@ -92,10 +94,12 @@ def load_game_h():
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
-                elif bool(GuessGame.play_h(difficulty)) is True:
-                    add_score(difficulty=difficulty)
-                    if __name__ == '__main__':
-                        MainScores.app.run()
+                else:
+                    GuessGame.play_h(difficulty)
+                # elif bool(GuessGame.play_h(difficulty)) is True:
+                #     add_score(difficulty=difficulty)
+                #     if __name__ == '__main__':
+                #         MainScores.app.run()
 
             if int(g) == 3:
                 print(f'===================================================================='
@@ -105,10 +109,12 @@ def load_game_h():
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
-                elif bool(CurrencyRouletteGame.play_h(difficulty)) is True:
-                    add_score(difficulty=difficulty)
-                    if __name__ == '__main__':
-                        MainScores.app.run()
+                else:
+                    CurrencyRouletteGame.play_h(difficulty)
+                # elif bool(CurrencyRouletteGame.play_h(difficulty)) is True:
+                #     add_score(difficulty=difficulty)
+                #     if __name__ == '__main__':
+                #         MainScores.app.run()
 
             while int(g) == 0:
                 quit_game = input('האם אתה בטוח שאת/ה רוצה לצאת? [כ/ל]\n').lower()
@@ -134,10 +140,6 @@ def load_game():
     game1 = 'The Memory Game'
     game2 = 'The Guessing Game'
     game3 = 'The Currency Roulette Game'
-
-    # game_dict = {game1: game1, game2: game2, game3: game3}
-    # prev_game = None
-    # prev_difficulty = None
 
     while True:
         try:

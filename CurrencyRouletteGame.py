@@ -134,13 +134,14 @@ def get_guess_from_user_h(difficulty, rng, x, converted):
             return False
 
     except ValueError:
-        print('תקלה. ניתן להזין רק מספרים.')
+        print('שגיאה. ניתן להזין רק מספרים.')
 
     return
 
 
 def play_h(difficulty):
     if get_money_interval_h(difficulty):
+        add_score(difficulty)
         return True, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
     else:
         return False, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0

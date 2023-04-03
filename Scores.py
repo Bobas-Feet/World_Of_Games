@@ -21,7 +21,7 @@ def add_score(difficulty):
         current_score = 0
     update_score = current_score + points_for_winning
     with open(scores_file_name, 'w+') as scores:
-        scores.write(str(f'{today} - Your Score for winning on difficulty'
+        scores.write(str(f'{today} - Your score for winning on difficulty'
                          f' {difficulty} is - {update_score + points_for_winning}'))
         scores.write(f'\n')
     return update_score
