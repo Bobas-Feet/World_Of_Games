@@ -6,12 +6,12 @@ while True:
         lang = int(input('Choose your language:\n1: English\n2: Hebrew\n'))
 
         if int(lang) == 1:
-            welcome()
-            load_game()
+            username = welcome()
+            load_game(username)
 
         elif lang == 2:
-            welcome_h()
-            load_game_h()
+            username2 = welcome_h()
+            load_game_h(username2)
 
         else:
             print('You can only choose one or the other.\n')

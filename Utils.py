@@ -1,16 +1,3 @@
-# from os import system, name
-#
-# Path = 'C:/DevOps/WoG (project)/'
-#
-# # score_file_name = open(f'{Path}Scores.txt', 'w')
-#
-# bad_return_code = int(401)
-#
-#
-# def screen_cleaner():
-#     if name == 'nt':
-#         _ = system('cls')
-#
 
 
 # This section imports the necessary modules and defines some constants
@@ -18,9 +5,9 @@ import os
 import time
 
 # some variables that i store my paths for the files in order to be used in the program in different modules
-scores_file_name = 'C:/DevOps/WoG-project/Scores'
+scores_file_name = 'C:/DevOps/WoG-project/Scores.txt'
 scores_file_flask = "./Scores.txt"
-last_scores = "./Scores/Last_scores.txt"
+last_scores = "./Scores.txt/Last_scores.txt"
 last_scores_flask = "./Last_scores.txt"
 bad_return_code = "ERROR CODE 214"
 

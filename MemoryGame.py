@@ -1,6 +1,5 @@
 import random
 import time
-
 import MainScores
 from Scores import add_score
 
@@ -32,7 +31,7 @@ def get_list_from_user(difficulty):
     n = []
     print(f"Let's begin the game. Insert {difficulty} numbers, one number at a time and press [ENTER]:")
     for i in range(difficulty):
-        n.append(int(input('What numbers do you remember seeing in the sequence above? ')))
+        n.append(int(input('What numbers do you remember seeing in the sequence above?\n')))
 
     return n
 
@@ -54,8 +53,7 @@ def play(difficulty):
 
     if is_list_equal(n=n, rng=rng):
         print('Yay. You got all the answers right.\n'.format(add_score(difficulty)))
-        if __name__ == '__main__':
-            MainScores.app.run()
+
         return True, play(difficulty) if input("Do you want to play again?"
                                                " [Enter 'Y' to play another round/"
                                                " Any other key to exit] ").lower() == 'y' else 0
@@ -70,7 +68,7 @@ def generate_sequence_h(difficulty):
 
     try:
         if difficulty == '' or difficulty == ' ':
-            print('תקלה. יש להזין בחירה.')
+            print('שגיאה. יש להזין בחירה.')
         difficulty = int(difficulty)
 
         rng = []
@@ -85,7 +83,7 @@ def generate_sequence_h(difficulty):
         return rng
 
     except ValueError:
-        print('תקלה.')
+        print('שגיאה.')
 
 
 def get_list_from_user_h(difficulty):

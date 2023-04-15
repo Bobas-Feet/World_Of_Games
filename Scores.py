@@ -21,8 +21,7 @@ def add_score(difficulty):
         current_score = 0
     update_score = current_score + points_for_winning
     with open(scores_file_name, 'w+') as scores:
-        scores.write(str(f'{today} - Your score for winning on difficulty'
-                         f' {difficulty} is - {update_score + points_for_winning}'))
+        scores.write(str(f'{update_score}'))
         scores.write(f'\n')
     return update_score
 
@@ -45,7 +44,7 @@ def no_score(difficulty):
     file_path = 'C:/DevOps/WoG-project/'
 
     try:
-        score_file = open(f'{file_path}Scores.txt', 'a+')
+        score_file = open(f'{file_path}Scores.txt', 'w')
         score_file.write(f'{today} -\nYour Score after fucking up on difficulty {difficulty} is {points_for_losing}')
         score_file.write(f'\n')
 

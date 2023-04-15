@@ -1,31 +1,31 @@
 import GuessGame
 import MemoryGame
 import CurrencyRouletteGame
-from Scores import add_score
+# from Scores import add_score
 from Utils import screen_cleaner
-import MainScores
-import importlib
+# import MainScores
+# import importlib
 
 
 def welcome():
     try:
-        name = input('Greetings Newcomer, what is your name? '
+        username = input('Greetings Newcomer, what is your name? '
                      '[Username must be 3-15 characters, only letters allowed.]\n')
 
         with open('name.txt', 'w+') as user_name_file:
-            user_name_file.write(f'{name}')
+            user_name_file.write(f'{username}')
 
-        if any([i > 'z' or i < 'a' for i in name]):
+        if any([i > 'z' or i < 'a' for i in username]):
             print('Error. Contains illegal characters.\n')
             return welcome()
-        elif len(name) > 15 or len(name) < 3:
+        elif len(username) > 15 or len(username) < 3:
             print('Error. Username either too long or too short.\n')
             return welcome()
-        elif name == '' or name == ' ':
+        elif username == '' or username == ' ':
             print('Error. You cannot leave this field empty.\n')
             return welcome()
         else:
-            print(f'Welcome [{name}], to the World of Games-(WoG).'
+            print(f'Welcome [{username}], to the World of Games-(WoG).'
                   f' Here you can play many cool games.')
 
     except ValueError:
@@ -35,30 +35,30 @@ def welcome():
 def welcome_h():
 
     try:
-        name = input('שלום, מה שמך? '
+        username2 = input('שלום, מה שמך? '
                      '[שם המשתמש מוכרך להיות באותיות בלבד, ללא רווחים וסימנים מיוחדים, ובין 2-15 תווים.]\n')
 
-        # with open('name.txt', 'w+') as user_name_file:
-        #     user_name_file.write(name)
+        with open('name.txt', 'w+') as user_name_file:
+            user_name_file.write(f'{username2}')
 
-        if any([i > 'ת' or i < 'א' for i in name]):
+        if any([i > 'ת' or i < 'א' for i in username2]):
             print('שגיאה. מכיל סימנים לא חוקיים.\n')
             return welcome_h()
-        if len(name) > 15 or len(name) < 2:
+        if len(username2) > 15 or len(username2) < 2:
             print('שגיאה. שם המשתמש ארוך או קצר מידי.\n')
             return welcome_h()
-        elif name == '' or name == ' ':
+        elif username2 == '' or username2 == ' ':
             print('שגיאה. לא ניתן להשאיר שדה זה ריק.\n')
             return welcome_h()
         else:
-            print('ברוכים הבאים, ' + '[' + name + ']' + ' לעולם המשחקים (WoG).\n'
+            print('ברוכים הבאים, ' + '[' + username2 + ']' + ' לעולם המשחקים (WoG).\n'
                                                         'כאן תוכל/י לשחק במשחקים נפלאים ומאתגרים.')
 
     except ValueError:
         print('הזנה לא חוקית.')
 
 
-def load_game_h():
+def load_game_h(username2):
     game1 = 'משחק הזיכרון'
     game2 = 'משחק הניחושים'
     game3 = 'משחק רולטה מט"ח'
@@ -80,10 +80,6 @@ def load_game_h():
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
                 else:
                     MemoryGame.play_h(difficulty)
-                # elif bool(MemoryGame.play_h(difficulty)) is True:
-                #     add_score(difficulty=difficulty)
-                #     if __name__ == '__main__':
-                #         MainScores.app.run()
 
             if int(g) == 2:
                 print('==================================================='
@@ -96,10 +92,6 @@ def load_game_h():
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
                 else:
                     GuessGame.play_h(difficulty)
-                # elif bool(GuessGame.play_h(difficulty)) is True:
-                #     add_score(difficulty=difficulty)
-                #     if __name__ == '__main__':
-                #         MainScores.app.run()
 
             if int(g) == 3:
                 print(f'===================================================================='
@@ -111,10 +103,6 @@ def load_game_h():
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
                 else:
                     CurrencyRouletteGame.play_h(difficulty)
-                # elif bool(CurrencyRouletteGame.play_h(difficulty)) is True:
-                #     add_score(difficulty=difficulty)
-                #     if __name__ == '__main__':
-                #         MainScores.app.run()
 
             while int(g) == 0:
                 quit_game = input('האם אתה בטוח שאת/ה רוצה לצאת? [כ/ל]\n').lower()
@@ -123,7 +111,7 @@ def load_game_h():
                     screen_cleaner()
                     quit()
                 elif quit_game == 'ל':
-                    load_game_h()
+                    load_game_h(username2)
                 else:
                     continue
 
@@ -135,7 +123,7 @@ def load_game_h():
             quit()
 
 
-def load_game():
+def load_game(username):
 
     game1 = 'The Memory Game'
     game2 = 'The Guessing Game'
@@ -157,12 +145,8 @@ def load_game():
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
-                # elif bool(MemoryGame.play(difficulty)) is True:
                 else:
                     MemoryGame.play(difficulty)
-                    # add_score(difficulty=difficulty)
-                    if __name__ == '__main__':
-                        MainScores.app.run()
 
             if int(g) == 2:
                 print(f'===================================='
@@ -174,12 +158,8 @@ def load_game():
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
-                # elif bool(GuessGame.play(difficulty)) is True:
                 else:
                     GuessGame.play(difficulty)
-                    # add_score(difficulty=difficulty)
-                    # if __name__ == '__main__':
-                    #     MainScores.app.run()
 
             if int(g) == 3:
                 print(f'====================================================================================='
@@ -189,12 +169,8 @@ def load_game():
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
-                # elif bool(CurrencyRouletteGame.play(difficulty)) is True:
                 else:
                     CurrencyRouletteGame.play(difficulty)
-                    # add_score(difficulty=difficulty)
-                    if __name__ == '__main__':
-                        MainScores.app.run()
 
             while int(g) == 0:
                 quit_game = input('Are you sure you want to quit? [y/n]\n').lower()
@@ -203,7 +179,7 @@ def load_game():
                     screen_cleaner()
                     quit()
                 elif quit_game == 'n':
-                    load_game()
+                    load_game(username)
                 else:
                     continue
 
