@@ -1,9 +1,9 @@
 # World Of Games
 Python project for DevOps course
 
-
-
 In this project I will let the player choose between several short games, written in python, and allow for bi-lingual play (English/Hebrew).
+
+Choose one of the following games to test your skills:
 
 1. Memory Game - A sequence of numbers will appear for 1 second and you have to
 guess it back.
