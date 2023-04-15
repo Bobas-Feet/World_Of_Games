@@ -4,8 +4,8 @@
 import os
 import time
 
-# some variables that i store my paths for the files in order to be used in the program in different modules
-scores_file_name = 'C:/DevOps/WoG-project/Scores.txt'
+# some variables that I store my paths for the files in order to be used in the program in different modules
+scores_file_name = 'C:/DevOps/WoG-project/txt-files/Scores.txt'
 scores_file_flask = "./Scores.txt"
 last_scores = "./Scores.txt/Last_scores.txt"
 last_scores_flask = "./Last_scores.txt"

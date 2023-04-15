@@ -1,6 +1,4 @@
-import GuessGame
-import MemoryGame
-import CurrencyRouletteGame
+from Games import GuessGame, MemoryGame, CurrencyRouletteGame
 # from Scores import add_score
 from Utils import screen_cleaner
 # import MainScores
@@ -10,7 +8,7 @@ from Utils import screen_cleaner
 def welcome():
     try:
         username = input('Greetings Newcomer, what is your name? '
-                     '[Username must be 3-15 characters, only letters allowed.]\n')
+                         '[Username must be 3-15 characters, only letters allowed.]\n')
 
         with open('name.txt', 'w+') as user_name_file:
             user_name_file.write(f'{username}')
@@ -36,7 +34,7 @@ def welcome_h():
 
     try:
         username2 = input('שלום, מה שמך? '
-                     '[שם המשתמש מוכרך להיות באותיות בלבד, ללא רווחים וסימנים מיוחדים, ובין 2-15 תווים.]\n')
+                          '[שם המשתמש מוכרך להיות באותיות בלבד, ללא רווחים וסימנים מיוחדים, ובין 2-15 תווים.]\n')
 
         with open('name.txt', 'w+') as user_name_file:
             user_name_file.write(f'{username2}')
@@ -52,7 +50,7 @@ def welcome_h():
             return welcome_h()
         else:
             print('ברוכים הבאים, ' + '[' + username2 + ']' + ' לעולם המשחקים (WoG).\n'
-                                                        'כאן תוכל/י לשחק במשחקים נפלאים ומאתגרים.')
+                                                             'כאן תוכל/י לשחק במשחקים נפלאים ומאתגרים.')
 
     except ValueError:
         print('הזנה לא חוקית.')
