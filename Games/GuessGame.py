@@ -2,7 +2,7 @@ import random
 import time
 
 import MainScores
-from Scores import add_score
+from Scores import add_score, no_score
 
 
 def generate_number(difficulty):
@@ -78,6 +78,7 @@ def play(difficulty):
                                                " [Enter 'Y' to play another round/"
                                                " Any other key to exit] ").lower() == 'y' else 0
     else:
+        no_score(difficulty)
         return False, play(difficulty) if input("\nDo you want to play again?"
                                                 " [Enter 'Y' to play another round/"
                                                 " Any other key to exit] ").lower() == 'y' else 0
@@ -147,8 +148,11 @@ def compare_results_h(guess, rng):
 
 
 def play_h(difficulty):
+
     if get_guess_from_user_h(difficulty):
         add_score(difficulty)
         return True, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
+
     else:
+        no_score(difficulty)
         return False, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0

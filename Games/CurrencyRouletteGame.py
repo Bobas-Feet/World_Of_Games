@@ -2,7 +2,7 @@ import time
 import requests
 from datetime import datetime
 import random
-from Scores import add_score
+from Scores import add_score, no_score
 from credentials import api_key
 
 
@@ -47,7 +47,7 @@ def get_guess_from_user(difficulty, rng, x, converted):
             elif help1 == 'n':
                 break
             else:
-                input('Tell me what you want. [y/n]').lower()
+                input('Do want help? [y/n]').lower()
                 break
 
         guess = int(input(f"So, how much is ${rng} in ILS? "
@@ -75,6 +75,7 @@ def play(difficulty):
                                                " [Enter 'Y' to play another round/"
                                                " Any other key to exit] ").lower() == 'y' else 0
     else:
+        no_score(difficulty)
         return False, play(difficulty) if input("Do you want to play again?"
                                                 " [Enter 'Y' to play another round/"
                                                 " Any other key to exit] ").lower() == 'y' else 0
@@ -144,4 +145,5 @@ def play_h(difficulty):
         add_score(difficulty)
         return True, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
     else:
+        no_score(difficulty)
         return False, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0

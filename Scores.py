@@ -19,11 +19,11 @@ def add_score(difficulty):
 
     else:
         current_score = 0
-    update_score = current_score + points_for_winning
+    updated_score = current_score + points_for_winning
     with open(scores_file_name, 'w+') as scores:
-        scores.write(str(f'{update_score}'))
+        scores.write(str(f'{updated_score}'))
         scores.write(f'\n')
-    return update_score
+    return updated_score
 
 
 def no_score(difficulty):
@@ -31,13 +31,26 @@ def no_score(difficulty):
     today = now.strftime("%a, %B %d %Y, %H:%M")
 
     points_for_losing = (difficulty * 3) - 3
-    file_path = 'C:/DevOps/WoG-project/txt-files/Scores.txt'
+    # file_path = 'C:/DevOps/WoG-project/txt-files/Scores.txt'
+    if os.path.exists(points_for_losing):
+        with open(points_for_losing, 'w+') as scores:
+            scores_list = scores.readlines()
+        scores_list = [int(x.strip()) for x in scores_list]
+        current_score = sum(scores_list)
 
-    try:
-        score_file = open(f'{file_path}Scores.txt', 'w+')
-        score_file.write(f'{points_for_losing}')
-        score_file.write(f'\n')
+    else:
+        current_score = 0
+    updated_score = current_score + points_for_losing
+    with open(scores_file_name, 'w+') as scores:
+        scores.write(str(f'{updated_score}'))
+        scores.write(f'\n')
+    return updated_score
 
-    except FileNotFoundError:
-        score = open(f'{file_path}/Scores.txt', 'x')
-        score.write(f'{points_for_losing}')
+    # try:
+    #     score_file = open('Scores.txt', 'w+')
+    #     score_file.write(f'{points_for_losing}')
+    #     score_file.write(f'\n')
+    #
+    # except FileNotFoundError:
+    #     score = open(f'Scores.txt', 'x')
+    #     score.write(f'{points_for_losing}')

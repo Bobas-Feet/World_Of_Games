@@ -1,7 +1,7 @@
 import random
 import time
 import MainScores
-from Scores import add_score
+from Scores import add_score, no_score
 
 
 def generate_sequence(difficulty):
@@ -52,13 +52,14 @@ def play(difficulty):
     n = get_list_from_user(difficulty)
 
     if is_list_equal(n=n, rng=rng):
-        print('Yay. You got all the answers right.\n'.format(add_score(difficulty)))
-
+        print('Yay. You got all the answers right.\n')
+        add_score(difficulty)
         return True, play(difficulty) if input("Do you want to play again?"
                                                " [Enter 'Y' to play another round/"
                                                " Any other key to exit] ").lower() == 'y' else 0
     else:
         print('Well, Fuck. You lost.\nThe numbers we were expecting were {}'.format(rng))
+        no_score(difficulty)
         return False, play(difficulty) if input("Do you want to play again?"
                                                 " [Enter 'Y' to play another round/"
                                                 " Any other key to exit] ").lower() == 'y' else 0
@@ -112,9 +113,12 @@ def play_h(difficulty):
     n = get_list_from_user_h(difficulty)
 
     if is_list_equal_h(n=n, rng=rng):
-        print('כל הכבוד, כל התשובות היו נכונות וניצחת במשחק.\n'.format(add_score(difficulty)))
+        print('כל הכבוד, כל התשובות שלך היו נכונות וניצחת במשחק.\n')
+        add_score(difficulty)
         return True, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
+
     else:
-        print('ובכן, הפסדת.\n')
+        print('ובכן, הפסדת. המספרים שהיית אמור לנחש הם {}\n'.format(rng))
+        no_score(difficulty)
         return False, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
 

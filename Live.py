@@ -10,7 +10,7 @@ def welcome():
         username = input('Greetings Newcomer, what is your name? '
                          '[Username must be 3-15 characters, only letters allowed.]\n')
 
-        with open('name.txt', 'w+') as user_name_file:
+        with open('C:/DevOps/WoG-project/txt-files/name.txt', 'w+') as user_name_file:
             user_name_file.write(f'{username}')
 
         if any([i > 'z' or i < 'a' for i in username]):
@@ -36,9 +36,6 @@ def welcome_h():
         username2 = input('שלום, מה שמך? '
                           '[שם המשתמש מוכרך להיות באותיות בלבד, ללא רווחים וסימנים מיוחדים, ובין 2-15 תווים.]\n')
 
-        with open('name.txt', 'w+') as user_name_file:
-            user_name_file.write(f'{username2}')
-
         if any([i > 'ת' or i < 'א' for i in username2]):
             print('שגיאה. מכיל סימנים לא חוקיים.\n')
             return welcome_h()
@@ -48,15 +45,18 @@ def welcome_h():
         elif username2 == '' or username2 == ' ':
             print('שגיאה. לא ניתן להשאיר שדה זה ריק.\n')
             return welcome_h()
+
         else:
             print('ברוכים הבאים, ' + '[' + username2 + ']' + ' לעולם המשחקים (WoG).\n'
                                                              'כאן תוכל/י לשחק במשחקים נפלאים ומאתגרים.')
+            with open('C:/DevOps/WoG-project/txt-files/name.txt', 'w+') as user_name_file:
+                user_name_file.write(f'{username2}')
 
     except ValueError:
         print('הזנה לא חוקית.')
 
 
-def load_game_h(username2):
+def load_game_h():
     game1 = 'משחק הזיכרון'
     game2 = 'משחק הניחושים'
     game3 = 'משחק רולטה מט"ח'
@@ -109,7 +109,7 @@ def load_game_h(username2):
                     screen_cleaner()
                     quit()
                 elif quit_game == 'ל':
-                    load_game_h(username2)
+                    load_game_h()
                 else:
                     continue
 
@@ -121,7 +121,7 @@ def load_game_h(username2):
             quit()
 
 
-def load_game(username):
+def load_game():
 
     game1 = 'The Memory Game'
     game2 = 'The Guessing Game'
@@ -177,7 +177,7 @@ def load_game(username):
                     screen_cleaner()
                     quit()
                 elif quit_game == 'n':
-                    load_game(username)
+                    load_game()
                 else:
                     continue
 
