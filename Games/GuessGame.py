@@ -64,7 +64,7 @@ def compare_results(guess, rng):
         print(f'You got it right. Good for you.\n')
         return True
     else:
-        print('You got it wrong. You suck at this.\nThe number that the computer was thinking of was {}'.format(rng))
+        print('You got it wrong. You suck at this.\nThe number that the computer was thinking of was [{}]'.format(rng))
         return False
 
 
@@ -72,8 +72,6 @@ def play(difficulty):
 
     if get_guess_from_user(difficulty):
         add_score(difficulty)
-        if __name__ == '__main__':
-            MainScores.app.run()
         return True, play(difficulty) if input("\nDo you want to play again?"
                                                " [Enter 'Y' to play another round/"
                                                " Any other key to exit] ").lower() == 'y' else 0
@@ -85,34 +83,36 @@ def play(difficulty):
 
 
 def generate_number_h(difficulty):
+
     while True:
         if difficulty == 1:
             print('רמת הקושי שנבחרה היא: קל מאוד')
             print('מייצר...')
-            time.sleep(2.5)
+            time.sleep(2)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 2:
             print('רמת הקושי שנבחרה היא: קל')
             print('מייצר...')
-            time.sleep(2.5)
+            time.sleep(2)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 3:
             print('רמת הקושי שנבחרה היא: בינוני')
             print('מייצר...')
-            time.sleep(2.5)
+            time.sleep(2)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 4:
             print('רמת הקושי שנבחרה היא: קשה')
             print('מייצר...')
-            time.sleep(2.5)
+            time.sleep(2)
             return random.randint(1, (difficulty * 5))
         elif difficulty == 5:
             print('רמת הקושי שנבחרה היא: קשה מאוד')
             print('מייצר...')
-            time.sleep(2.5)
+            time.sleep(2)
             return random.randint(1, (difficulty * 5))
         else:
-            print('תקלה. רמת קושי לא מוכרת')
+            print('שגיאה. רמת קושי שהקשת לא מוכרת.')
+            continue
 
 
 def get_guess_from_user_h(difficulty):
@@ -129,9 +129,9 @@ def get_guess_from_user_h(difficulty):
             return False
 
         if rng > guess:
-            print('לא, נסי/ה גבוה יותר.')
+            print('לא, אולי תנסי/ה מספר גבוה יותר.')
         elif rng < guess:
-            print('לא, נסי/ה נמוך יותר.')
+            print('לא, אולי תנסי/ה מספר נמוך יותר.')
         else:
             compare_results_h(guess, rng)
             return True
@@ -143,7 +143,7 @@ def compare_results_h(guess, rng):
         print(f'ניחשת נכון. כל הכבוד.\n')
         return True
     else:
-        print('לא ניחשת נכון.\n')
+        print('ניחשת לא נכון. המספר שהמחשב חיפש הוא [{}]\n'.format(rng))
         return False
 
 

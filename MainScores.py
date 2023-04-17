@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, redirect, url_for, request
 from App import AppScore
 from Utils import bad_return_code, last_scores_flask, scores_file_flask
-
+from e2e import main_function
 
 app = Flask(__name__)
 

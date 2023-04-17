@@ -16,7 +16,6 @@ def add_score(difficulty):
             scores_list = scores.readlines()
         scores_list = [int(x.strip()) for x in scores_list]
         current_score = sum(scores_list)
-
     else:
         current_score = 0
     updated_score = current_score + points_for_winning

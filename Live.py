@@ -1,8 +1,8 @@
 from Games import GuessGame, MemoryGame, CurrencyRouletteGame
 # from Scores import add_score
 from Utils import screen_cleaner
-# import MainScores
-# import importlib
+import MainScores
+# from e2e import main_function
 
 
 def welcome():
@@ -49,11 +49,11 @@ def welcome_h():
         else:
             print('ברוכים הבאים, ' + '[' + username2 + ']' + ' לעולם המשחקים (WoG).\n'
                                                              'כאן תוכל/י לשחק במשחקים נפלאים ומאתגרים.')
-            with open('C:/DevOps/WoG-project/txt-files/name.txt', 'w+') as user_name_file:
-                user_name_file.write(f'{username2}')
+        # with open('C:/DevOps/WoG-project/txt-files/name.txt', 'w+') as user_name_file:
+        #     user_name_file.write(f'{username2}')
 
     except ValueError:
-        print('הזנה לא חוקית.')
+        print('שגיאה. משהו פה לא בסדר...')
 
 
 def load_game_h():
@@ -76,8 +76,11 @@ def load_game_h():
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
+                    continue
                 else:
                     MemoryGame.play_h(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    # main_function()
 
             if int(g) == 2:
                 print('==================================================='
@@ -88,8 +91,11 @@ def load_game_h():
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
+                    continue
                 else:
                     GuessGame.play_h(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    # main_function()
 
             if int(g) == 3:
                 print(f'===================================================================='
@@ -99,8 +105,11 @@ def load_game_h():
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
+                    continue
                 else:
                     CurrencyRouletteGame.play_h(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    # main_function()
 
             while int(g) == 0:
                 quit_game = input('האם אתה בטוח שאת/ה רוצה לצאת? [כ/ל]\n').lower()
@@ -145,6 +154,8 @@ def load_game():
                     print('Your only options here are [1/2/3/4/5]')
                 else:
                     MemoryGame.play(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    # main_function()
 
             if int(g) == 2:
                 print(f'===================================='
@@ -158,6 +169,8 @@ def load_game():
                     print('Your only options here are [1/2/3/4/5]')
                 else:
                     GuessGame.play(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    # main_function()
 
             if int(g) == 3:
                 print(f'====================================================================================='
@@ -169,6 +182,8 @@ def load_game():
                     print('Your only options here are [1/2/3/4/5]')
                 else:
                     CurrencyRouletteGame.play(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    # main_function()
 
             while int(g) == 0:
                 quit_game = input('Are you sure you want to quit? [y/n]\n').lower()
