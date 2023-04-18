@@ -1,7 +1,7 @@
 from Games import GuessGame, MemoryGame, CurrencyRouletteGame
 # from Scores import add_score
 from Utils import screen_cleaner
-import MainScores
+import Scores.MainScores
 # from e2e import main_function
 
 
@@ -10,7 +10,7 @@ def welcome():
         username = input('Greetings Newcomer, what is your name? '
                          '[Username must be 3-15 characters, only letters allowed.]\n')
 
-        with open('C:/DevOps/WoG-project/txt-files/name.txt', 'w+') as user_name_file:
+        with open('C:/DevOps/WoG-project/Scores/name.txt', 'w+') as user_name_file:
             user_name_file.write(f'{username}')
 
         if any([i > 'z' or i < 'a' for i in username]):

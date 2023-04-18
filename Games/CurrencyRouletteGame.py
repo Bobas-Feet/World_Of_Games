@@ -2,7 +2,7 @@ import time
 import requests
 from datetime import datetime
 import random
-from Scores import add_score, no_score
+from Scores.Scores import add_score, no_score
 from credentials import api_key
 
 
