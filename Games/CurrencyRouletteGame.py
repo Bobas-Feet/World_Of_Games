@@ -59,7 +59,7 @@ def get_guess_from_user(difficulty, rng, x, converted):
             print('You got it right! You are a lean-mean-calculating machine!\n')
             return True
         else:
-            print('Nope. You missed the mark. Maybe if you play again you will have better luck.')
+            print('Nope. You missed the mark. Maybe if you play again you will have better luck.\n')
             return False
 
     except ValueError:

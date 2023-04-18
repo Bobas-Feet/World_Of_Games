@@ -1,8 +1,7 @@
 from Games import GuessGame, MemoryGame, CurrencyRouletteGame
-# from Scores import add_score
+from Scores import MainScores
 from Utils import screen_cleaner
-import Scores.MainScores
-# from e2e import main_function
+
 
 
 def welcome():
