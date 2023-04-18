@@ -1,7 +1,6 @@
 from Games import GuessGame, MemoryGame, CurrencyRouletteGame
-from Scores import MainScores
+import MainScores
 from Utils import screen_cleaner
-
 
 
 def welcome():
@@ -9,7 +8,7 @@ def welcome():
         username = input('Greetings Newcomer, what is your name? '
                          '[Username must be 3-15 characters, only letters allowed.]\n')
 
-        with open('C:/DevOps/WoG-project/Scores/name.txt', 'w+') as user_name_file:
+        with open('C:/DevOps/WoG-project/Scoreboard/name.txt', 'w+') as user_name_file:
             user_name_file.write(f'{username}')
 
         if any([i > 'z' or i < 'a' for i in username]):

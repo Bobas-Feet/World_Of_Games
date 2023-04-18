@@ -35,6 +35,6 @@ def main_function():
         sys.exit(-1)
 
 
-# main_function()
+main_function()
 
 
