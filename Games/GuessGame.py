@@ -44,16 +44,14 @@ def get_guess_from_user(difficulty):
                           f'\nCan you guess what it is?\n'))
         if int(count) >= 3:
             # print("\nWell, it seems you're out of attempts.")
-            compare_results(guess, rng)
-            return False
+            return False, compare_results(guess, rng)
 
         if rng > guess:
             print('Nope. Maybe higher.')
         elif rng < guess:
             print('Nope. Maybe lower.')
         else:
-            compare_results(guess, rng)
-            return True
+            return True, compare_results(guess, rng)
 
 
 def compare_results(guess, rng):
@@ -123,16 +121,14 @@ def get_guess_from_user_h(difficulty):
                           f'\nהאם את/ה מסוגל/ת לנחש את המספר?\n'))
         if int(count) >= 3:
             # print("\nWell, it seems you're out of attempts.")
-            compare_results_h(guess, rng)
-            return False
+            return False, compare_results_h(guess, rng)
 
         if rng > guess:
-            print('לא, אולי תנסי/ה מספר גבוה יותר.')
+            print('לא, אולי תנסי/ה מספר גבוה יותר.\n')
         elif rng < guess:
-            print('לא, אולי תנסי/ה מספר נמוך יותר.')
+            print('לא, אולי תנסי/ה מספר נמוך יותר.\n')
         else:
-            compare_results_h(guess, rng)
-            return True
+            return True, compare_results_h(guess, rng)
 
 
 def compare_results_h(guess, rng):

@@ -1,5 +1,6 @@
 import sys
 import time
+from Utils import bad_return_code
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -10,16 +11,17 @@ def test_scores_service(url):
 
     driver = webdriver.Chrome('C:/DevOps/webdrivers/cromedriver')
     driver.get(url)
+
     time.sleep(3)
+
     element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'score')))
-    find_name = driver.find_element(By.ID, 'username')
     score = int(element.text)
 
     if 1 <= score <= 1000:
-        return True, print(f"{find_name}'s winning score was {score}")
+        return True, print(f'The last winning score was {score}')
 
     else:
-        return False
+        return False, print(bad_return_code)
     # finally:
     # driver.quit()
 

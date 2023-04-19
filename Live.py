@@ -1,16 +1,13 @@
-import LosingScore
 from Games import GuessGame, MemoryGame, CurrencyRouletteGame
 import MainScores
 from Utils import screen_cleaner
 
 
 def welcome():
+
     try:
         username = input('Greetings Newcomer, what is your name? '
                          '[Username must be 3-15 characters, only letters allowed.]\n')
-
-        with open('C:/DevOps/WoG-project/Scoreboard/name.txt', 'w+') as user_name_file:
-            user_name_file.write(f'{username}')
 
         if any([i > 'z' or i < 'a' for i in username]):
             print('Error. Contains illegal characters.\n')
@@ -24,6 +21,9 @@ def welcome():
         else:
             print(f'Welcome [{username}], to the World of Games-(WoG).'
                   f' Here you can play many cool games.')
+
+        with open('C:/DevOps/WoG-project/Scoreboard/name.txt', 'w+') as user_name_file:
+            user_name_file.write(f'{username}')
 
     except ValueError:
         print('invalid input.')
@@ -48,8 +48,9 @@ def welcome_h():
         else:
             print('ברוכים הבאים, ' + '[' + username2 + ']' + ' לעולם המשחקים (WoG).\n'
                                                              'כאן תוכל/י לשחק במשחקים נפלאים ומאתגרים.')
-        # with open('C:/DevOps/WoG-project/txt-files/name.txt', 'w+') as user_name_file:
-        #     user_name_file.write(f'{username2}')
+
+        with open('C:/DevOps/WoG-project/Scoreboard/name.txt', 'w+') as user_name_file:
+            user_name_file.write(f'{username2}')
 
     except ValueError:
         print('שגיאה. משהו פה לא בסדר...')
@@ -77,12 +78,9 @@ def load_game_h():
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
                     continue
                 else:
-                    mm = MemoryGame.play_h(difficulty)
-                    if mm is True:
-                        MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        LosingScore.app.run(host=LosingScore.host, debug=LosingScore.debug, port=LosingScore.port)
-            # main_function()
+                    MemoryGame.play_h(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    # main_function()
 
             if int(g) == 2:
                 print('==================================================='
@@ -95,12 +93,9 @@ def load_game_h():
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
                     continue
                 else:
-                    gg = GuessGame.play_h(difficulty)
-                    if gg is True:
-                        MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        LosingScore.app.run(host=LosingScore.host, debug=LosingScore.debug, port=LosingScore.port)
-            # main_function()
+                    GuessGame.play_h(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    # main_function()
 
             if int(g) == 3:
                 print(f'===================================================================='
@@ -112,12 +107,9 @@ def load_game_h():
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
                     continue
                 else:
-                    crg = CurrencyRouletteGame.play_h(difficulty)
-                    if crg is True:
-                        MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        LosingScore.app.run(host=LosingScore.host, debug=LosingScore.debug, port=LosingScore.port)
-            # main_function()
+                    CurrencyRouletteGame.play_h(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    # main_function()
 
             while int(g) == 0:
                 quit_game = input('האם אתה בטוח שאת/ה רוצה לצאת? [כ/ל]\n').lower()
@@ -161,11 +153,8 @@ def load_game():
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
                 else:
-                    mg = MemoryGame.play(difficulty)
-                    if mg is True:
-                        MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        LosingScore.app.run(host=LosingScore.host, debug=LosingScore.debug, port=LosingScore.port)
+                    MemoryGame.play(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
                     # main_function()
 
             if int(g) == 2:
@@ -179,11 +168,8 @@ def load_game():
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
                 else:
-                    gg = GuessGame.play(difficulty)
-                    if gg is True:
-                        MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        LosingScore.app.run(host=LosingScore.host, debug=LosingScore.debug, port=LosingScore.port)
+                    GuessGame.play(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
                     # main_function()
 
             if int(g) == 3:
@@ -195,11 +181,8 @@ def load_game():
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
                 else:
-                    crg = CurrencyRouletteGame.play(difficulty)
-                    if crg is True:
-                        MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        LosingScore.app.run(host=LosingScore.host, debug=LosingScore.debug, port=LosingScore.port)
+                    CurrencyRouletteGame.play(difficulty)
+                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
                     # main_function()
 
             while int(g) == 0:

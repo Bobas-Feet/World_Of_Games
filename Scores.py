@@ -1,6 +1,6 @@
 from datetime import datetime
 import os
-from Utils import scores_file_name
+from Utils import scores_file_name, scores_file_name_lose
 
 
 def add_score(difficulty):
@@ -16,22 +16,26 @@ def add_score(difficulty):
             scores_list = scores.readlines()
         scores_list = [int(x.strip()) for x in scores_list]
         current_score = sum(scores_list)
+
     else:
         current_score = 0
     updated_score = current_score + points_for_winning
+
     with open(scores_file_name, 'w+') as scores:
-        scores.write(str(f'{updated_score}'))
+        scores.write(str(f'today - {updated_score}'))
         scores.write(f'\n')
     return updated_score
 
 
 def no_score(difficulty):
+
     now = datetime.now()
     today = now.strftime("%a, %B %d %Y, %H:%M")
 
     points_for_losing = (difficulty * 3) - 3
     # file_path = 'C:/DevOps/WoG-project/txt-files/Scores.txt'
     if os.path.exists(points_for_losing):
+
         with open(points_for_losing, 'w+') as scores:
             scores_list = scores.readlines()
         scores_list = [int(x.strip()) for x in scores_list]
@@ -40,7 +44,8 @@ def no_score(difficulty):
     else:
         current_score = 0
     updated_score = current_score + points_for_losing
-    with open(scores_file_name, 'w+') as scores:
+
+    with open(scores_file_name_lose, 'w+') as scores:
         scores.write(str(f'{updated_score}'))
         scores.write(f'\n')
     return updated_score

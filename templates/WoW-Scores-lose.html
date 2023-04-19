@@ -5,12 +5,22 @@
     <title>WoW - Scores</title>
     <meta http-equiv='refresh' content='10'>
 </head>
+
 <h1>---Game Score---</h1>
-<body>
-<h1>
-    <div style="color:red">LOSER!!!</div>
-</h1>
-    <p> Well {{username}}, you lost this time, and your score is:</p>
-    <strong id='score'>{{losing_score}}</strong>
-</body>
+
+    <body>
+
+        <div style="color:red">LOSER!!!</div>
+
+        <div class="game_summary">
+
+            <h2 id='username'> Hello {{username}}.</h2>
+
+                <p> Well, it seems you lost this time. Don't you feel awful?</p>
+                <p>Your score is:
+                    <strong id='score'>{{losing_score}}</strong>
+                </p>
+
+        </div>
+    </body>
 </html>

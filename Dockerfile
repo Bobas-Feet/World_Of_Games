@@ -1,16 +1,16 @@
-FROM python:latest
-LABEL Maintainer="Boba's Feet"
+FROM python:3.9
+
 
 WORKDIR /DevOps/WoG-project
 RUN pip install flask
 
-COPY Scores/MainScores.py .
+COPY MainScores.py .
 
 COPY Utils.py .
 
-COPY ../name.txt .
+COPY Scoreboard/name.txt .
 
-COPY Scores/Scores.txt
+COPY Scoreboard/Scores.txt .
 
 EXPOSE 5000
 
