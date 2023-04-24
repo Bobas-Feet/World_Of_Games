@@ -14,7 +14,7 @@ services:
     # Mount local files/directories as volumes in the container
     volumes:
       - ./Scores.txt:/DevOps/WoG-project/Scoreboard/Scores.txt
-      - ../name.txt:/DevOps/WoG-project/Scoreboard/name.txt
+      - ./name.txt:/DevOps/WoG-project/Scoreboard/name.txt
     # Expose the container's port 5000 to host port 8777
     ports:
       - "8777:5000"

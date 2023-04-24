@@ -1,5 +1,7 @@
+
 from Games import GuessGame, MemoryGame, CurrencyRouletteGame
 import MainScores
+from Scores import add_score, no_score
 from Utils import screen_cleaner
 
 
@@ -79,7 +81,7 @@ def load_game_h():
                     continue
                 else:
                     MemoryGame.play_h(difficulty)
-                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
                     # main_function()
 
             if int(g) == 2:
@@ -94,7 +96,7 @@ def load_game_h():
                     continue
                 else:
                     GuessGame.play_h(difficulty)
-                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
                     # main_function()
 
             if int(g) == 3:
@@ -108,7 +110,7 @@ def load_game_h():
                     continue
                 else:
                     CurrencyRouletteGame.play_h(difficulty)
-                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
                     # main_function()
 
             while int(g) == 0:
@@ -154,7 +156,7 @@ def load_game():
                     print('Your only options here are [1/2/3/4/5]')
                 else:
                     MemoryGame.play(difficulty)
-                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
                     # main_function()
 
             if int(g) == 2:
@@ -169,7 +171,7 @@ def load_game():
                     print('Your only options here are [1/2/3/4/5]')
                 else:
                     GuessGame.play(difficulty)
-                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
                     # main_function()
 
             if int(g) == 3:
@@ -182,7 +184,7 @@ def load_game():
                     print('Your only options here are [1/2/3/4/5]')
                 else:
                     CurrencyRouletteGame.play(difficulty)
-                    MainScores.app.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
                     # main_function()
 
             while int(g) == 0:

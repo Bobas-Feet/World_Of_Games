@@ -1,16 +1,17 @@
 FROM python:3.9
 
+WORKDIR /WoGApp
 
-WORKDIR /DevOps/WoG-project
-RUN pip install flask
+RUN pip install flask \
+    && pip3 install --upgrade pip
 
-COPY MainScores.py .
+COPY WoG-project/MainScores.py .
 
-COPY Utils.py .
+COPY WoG-project/Utils.py .
 
-COPY Scoreboard/name.txt .
+COPY /Scoreboard/name.txt .
 
-COPY Scoreboard/Scores.txt .
+COPY /Scoreboard/Scores.txt .
 
 EXPOSE 5000
 

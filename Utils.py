@@ -1,4 +1,5 @@
 
+# docker build -t wog:latest .
 
 # This section imports the necessary modules and defines some constants
 import os
