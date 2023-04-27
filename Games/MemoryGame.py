@@ -50,7 +50,7 @@ def play(difficulty):
     rng = generate_sequence(difficulty)
     n = get_list_from_user(difficulty)
 
-    if is_list_equal(n=n, rng=rng):
+    if is_list_equal(n=n, rng=rng) is True:
         print('Yay. You got all the answers right.\n')
         add_score(difficulty)
         return True, play(difficulty) if input("Do you want to play again?"
@@ -120,4 +120,3 @@ def play_h(difficulty):
         print('ובכן, הפסדת. המספרים שהיית אמור לנחש הם {}\n'.format(rng))
         no_score(difficulty)
         return False, play_h(difficulty) if input('האם תרצי/ה לשחק בשנית? [כ/ כל מקש אחר ליציאה]\n') == 'כ' else 0
-

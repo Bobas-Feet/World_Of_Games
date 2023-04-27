@@ -69,6 +69,7 @@ def get_guess_from_user(difficulty, rng, x, converted):
 
 
 def play(difficulty):
+
     if get_money_interval(difficulty):
         add_score(difficulty)
         return True, play(difficulty) if input("Do you want to play again?"

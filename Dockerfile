@@ -1,9 +1,10 @@
 FROM python:3.9
 
-WORKDIR /WoGApp
 
 RUN pip install flask \
     && pip3 install --upgrade pip
+
+WORKDIR /app
 
 COPY WoG-project/MainScores.py .
 
