@@ -1,6 +1,6 @@
 from datetime import datetime
 from Games import GuessGame, MemoryGame, CurrencyRouletteGame
-import MainScores
+# from Scoreboard import MainScores
 from Utils import screen_cleaner
 
 
@@ -56,12 +56,9 @@ def load_game():
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
-
                 else:
-                    if MemoryGame.play(difficulty) is True:
-                        MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        MainScores.WoG2.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    MemoryGame.play(difficulty)
+
             if int(g) == 2:
                 print(f'===================================='
                       f'=================================================='
@@ -72,12 +69,8 @@ def load_game():
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
-
                 else:
-                    if GuessGame.play(difficulty) is True:
-                        MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        MainScores.WoG2.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    GuessGame.play(difficulty)
                     # main_function()
 
             if int(g) == 3:
@@ -88,12 +81,8 @@ def load_game():
                 difficulty = int(input('What difficulty would you like to play? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('Your only options here are [1/2/3/4/5]')
-
                 else:
-                    if CurrencyRouletteGame.play(difficulty) is True:
-                        MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        MainScores.WoG2.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    CurrencyRouletteGame.play(difficulty)
                     # main_function()
 
             while int(g) == 0:
@@ -139,8 +128,8 @@ def welcome_h():
             print('ברוכים הבאים, ' + '[' + username2 + ']' + ' לעולם המשחקים (WoG).\n'
                                                              'כאן תוכל/י לשחק במשחקים נפלאים ומאתגרים.')
 
-        with open('C:/DevOps/WoG-project/Scoreboard/name.txt', 'w+') as user_name_file:
-            user_name_file.write(f'{username2}')
+        # with open('C:/DevOps/WoG-project/Scoreboard/name.txt', 'w+') as user_name_file:
+        #     user_name_file.write(f'{username2}')
 
     except ValueError:
         print('שגיאה. משהו פה לא בסדר...')
@@ -168,12 +157,8 @@ def load_game_h():
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
-
                 else:
-                    if MemoryGame.play_h(difficulty) is True:
-                        MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        MainScores.WoG2.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    MemoryGame.play_h(difficulty)
                     # main_function()
 
             elif int(g) == 2:
@@ -185,12 +170,8 @@ def load_game_h():
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
-
                 else:
-                    if GuessGame.play_h(difficulty) is True:
-                        MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        MainScores.WoG2.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    GuessGame.play_h(difficulty)
                     # main_function()
 
             elif int(g) == 3:
@@ -201,12 +182,8 @@ def load_game_h():
                 difficulty = int(input('באיזה רמת קושי תרצי/ה לשחק? [1/2/3/4/5]\n'))
                 if difficulty not in range(1, 6):
                     print('האפשרויות היחידות שלך הן [1/2/3/4/5]')
-
                 else:
-                    if CurrencyRouletteGame.play_h(difficulty) is True:
-                        MainScores.WoG.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
-                    else:
-                        MainScores.WoG2.run(host=MainScores.host, debug=MainScores.debug, port=MainScores.port)
+                    CurrencyRouletteGame.play_h(difficulty)
                     # main_function()
 
             elif int(g) == 0:
@@ -229,5 +206,3 @@ def load_game_h():
         print('\nלהתראות. נשמח לראותך שוב.')
         screen_cleaner()
         quit()
-
-

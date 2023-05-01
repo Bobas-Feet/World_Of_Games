@@ -6,12 +6,12 @@ import os
 import time
 
 # some variables that I store my paths for the files in order to be used in the program in different modules
-scores_file_name = 'C:/DevOps/WoG-project/Scoreboard/Scores.txt'
-scores_file_name_lose = 'C:/DevOps/WoG-project/Scoreboard/Scores_lose.txt'
-scores_file_flask = "C:/DevOps/WoG-project/Scoreboard/Scores.txt"
-scores_file_flask_lose = "C:/DevOps/WoG-project/Scoreboard/Scores_lose.txt"
-last_scores = "C:/DevOps/WoG-project/Scoreboard/Last_scores.txt"
-last_scores_flask = "C:/DevOps/WoG-project/Scoreboard/Last_scores.txt"
+scores_file_name = './Scoreboard/Scores.txt'
+scores_file_name_lose = './Scoreboard/Scores_lose.txt'
+scores_file_flask = "./Scoreboard/Scores.txt"
+scores_file_flask_lose = "./Scoreboard/Scores_lose.txt"
+last_scores = "./Scoreboard/Last_scores.txt"
+last_scores_flask = "./Scoreboard/Last_scores.txt"
 bad_return_code = "ERROR CODE 214"
 
 

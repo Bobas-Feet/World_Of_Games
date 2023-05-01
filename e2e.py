@@ -15,10 +15,12 @@ def test_scores_service(url):
     time.sleep(3)
 
     element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'score')))
+    element2 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'username')))
     score = int(element.text)
+    username = element2.text
 
     if 1 <= score <= 1000:
-        return True, print(f'The last winning score was {score}')
+        return True, print(f'The last winning score was {score}, and it was "{username}" who had done it.')
 
     else:
         return False, print(bad_return_code)
