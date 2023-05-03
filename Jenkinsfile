@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('C:/DevOps/WoG-project') {
-                    sh 'docker-compose build'
+                    bat 'docker-compose build'
                 }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
         stage('Run') {
             steps {
                 dir('WoG-project') {
-                    sh 'docker-compose up -d'
+                    bat 'docker-compose up -d'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
         stage('Test') {
             steps {
                 dir('WoG-project') {
-                    sh 'python3 e2e.py'
+                    bat 'python3 e2e.py'
                 }
             }
         }
@@ -29,8 +29,8 @@ pipeline {
         stage('Finalize') {
             steps {
                 dir('WoG-project') {
-                    sh 'docker-compose down'
-                    sh 'docker-compose push'
+                    bat 'docker-compose down'
+                    bat 'docker-compose push'
                 }
             }
         }
