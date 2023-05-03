@@ -25,7 +25,7 @@ services:
       - FLASK_RUN_HOST=0.0.0.0
       - FLASK_RUN_PORT=5000
       - DOCKER_BUILDKIT=0
-      -
+
     # Start the Flask app with "flask run" command
     command: [ "flask", "run",]
 

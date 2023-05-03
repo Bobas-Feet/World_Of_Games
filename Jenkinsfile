@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir('WoG-project') {
+                dir('C:/DevOps/WoG-project') {
                     sh 'docker-compose build'
                 }
             }
