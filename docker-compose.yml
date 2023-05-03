@@ -2,6 +2,7 @@ version: "3.8"
 
 # Define the services (containers) that will be run
 services:
+
   flask_app:
     image: wog_flask
     # Mount local files/directories as volumes in the container
@@ -13,17 +14,21 @@ services:
     volumes:
       - ./Scoreboard/Scores.txt:/wog_flask/app
       - ./Scoreboard/name.txt:/wog_flask/app
+
     # Expose the container's port 5000 to host port 8777
     ports:
       - "8777:5000"
+
     # Set environment variables for the container
     environment:
       - FLASK_APP=MainScores.py
       - FLASK_RUN_HOST=0.0.0.0
       - FLASK_RUN_PORT=5000
       - DOCKER_BUILDKIT=0
+      -
     # Start the Flask app with "flask run" command
     command: [ "flask", "run",]
+
     # Connect the container to a custom network with a static IP address
     networks:
       scores_network:
