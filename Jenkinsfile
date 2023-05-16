@@ -12,7 +12,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                dir('WoG-project') {
+                dir('C:/DevOps/WoG-project') {
                     bat 'docker-compose up -d'
                 }
             }
@@ -20,15 +20,17 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir('WoG-project') {
-                    bat 'e2e.py'
+                dir('C:/DevOps/WoG-project/') {
+
+                    bat 'start cmd.exe /c C:/DevOps/WoG-project/e2e.py'
                 }
             }
         }
 
         stage('Finalize') {
-            steps {
-                dir('WoG-project') {
+             steps {
+
+                    dir('C:/DevOps/WoG-project') {
                     bat 'docker-compose down'
                     bat 'docker-compose push'
                 }
